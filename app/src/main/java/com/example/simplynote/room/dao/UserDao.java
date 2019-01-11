@@ -10,20 +10,18 @@ import com.example.simplynote.room.model.User;
 
 import java.util.List;
 
-import io.reactivex.Single;
-
 @Dao
-interface UserDao {
+public interface UserDao {
 
     @Insert
     void insert(User user);
 
     @Query("SELECT * FROM Users")
-    List<Single<User>> getAll();
+    List<User> getAll();
 
     @Update
     void update(User user);
 
     @Delete
-    void delete(long userId);
+    void delete(User user);
 }

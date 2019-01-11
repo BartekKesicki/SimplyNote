@@ -10,8 +10,6 @@ import com.example.simplynote.room.model.Note;
 
 import java.util.List;
 
-import io.reactivex.Single;
-
 @Dao
 public interface NoteDao {
 
@@ -19,11 +17,11 @@ public interface NoteDao {
     void insert(Note note);
 
     @Query("SELECT * FROM Notes")
-    List<Single<Note>> getAll();
+    List<Note> getAll();
 
     @Update
     void update(Note note);
 
     @Delete
-    void delete(long noteId);
+    void delete(Note note);
 }
