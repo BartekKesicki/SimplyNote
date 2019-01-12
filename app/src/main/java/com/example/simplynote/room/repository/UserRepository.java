@@ -4,11 +4,12 @@ import com.example.simplynote.room.model.User;
 
 import java.util.List;
 
+import io.reactivex.Completable;
 import io.reactivex.Single;
 
 public interface UserRepository {
-    void insert(User user);
+    Completable insert(User user);
     Single<List<User>> getAll();
-    void update(User user);
-    void delete(User user);
+    Completable update(User user);
+    Completable delete(User user);
 }
