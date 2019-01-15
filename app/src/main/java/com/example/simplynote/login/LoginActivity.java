@@ -6,8 +6,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.simplynote.R;
+import com.example.simplynote.base.BaseContract;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements BaseContract.BaseView {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
