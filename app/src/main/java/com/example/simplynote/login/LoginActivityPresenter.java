@@ -15,4 +15,12 @@ public class LoginActivityPresenter implements LoginContract.LoginPresenter<Logi
     public void detach() {
         view = LoginContract.NULL;
     }
+
+    public void performToRedirectToRegisterPage() {
+        //todo redirect to register page
+    }
+
+    public void performToLogin(String login, String password) {
+        //todo login
+    }
 }
