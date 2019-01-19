@@ -5,18 +5,16 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.simplynote.R;
+import com.example.simplynote.base.BaseActivity;
 import com.google.android.material.textfield.TextInputEditText;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import dagger.android.AndroidInjection;
 
-public class LoginActivity extends AppCompatActivity implements LoginContract.LoginView {
+public class LoginActivity extends BaseActivity implements LoginContract.LoginView {
 
     @Inject
     LoginActivityPresenter presenter;
@@ -34,7 +32,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
         AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        ButterKnife.bind(this);
         presenter.attach(this);
         setButtonListeners();
     }

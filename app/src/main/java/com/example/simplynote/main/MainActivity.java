@@ -5,12 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.simplynote.R;
+import com.example.simplynote.base.BaseActivity;
 
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
 
-public class MainActivity extends AppCompatActivity implements MainContract.MainView {
+public class MainActivity extends BaseActivity implements MainContract.MainView {
 
     @Inject
     MainActivityPresenter presenter;
