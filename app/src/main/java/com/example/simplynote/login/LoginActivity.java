@@ -1,5 +1,7 @@
 package com.example.simplynote.login;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +17,12 @@ import butterknife.BindView;
 import dagger.android.AndroidInjection;
 
 public class LoginActivity extends BaseActivity implements LoginContract.LoginView {
+
+    public static void start(Context context) {
+        Intent intent = new Intent(context, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        context.startActivity(intent);
+    }
 
     @Inject
     LoginActivityPresenter presenter;
