@@ -6,6 +6,7 @@ public class LoginContract {
 
     public interface LoginView extends BaseContract.BaseView {
         void setLoginErrorMessage(String message);
+        void redirectToRegisterActivity();
         void clearErrors();
     }
 
@@ -16,6 +17,10 @@ public class LoginContract {
     public static LoginView NULL = new LoginView() {
         @Override
         public void setLoginErrorMessage(String message) { }
+
+        @Override
+        public void redirectToRegisterActivity() { }
+
         @Override
         public void clearErrors() { }
     };

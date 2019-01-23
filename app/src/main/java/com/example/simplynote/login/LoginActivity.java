@@ -9,6 +9,7 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import com.example.simplynote.R;
 import com.example.simplynote.base.BaseActivity;
+import com.example.simplynote.register.RegisterActivity;
 import com.google.android.material.textfield.TextInputEditText;
 
 import javax.inject.Inject;
@@ -72,6 +73,11 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
     @Override
     public void setLoginErrorMessage(String message) {
         loginEdittext.setError(message);
+    }
+
+    @Override
+    public void redirectToRegisterActivity() {
+        RegisterActivity.start(this);
     }
 
     @Override
