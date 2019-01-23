@@ -1,8 +1,8 @@
-package com.example.simplynote.room.repository.impl;
+package com.example.simplynote.repository.impl;
 
+import com.example.simplynote.repository.NoteRepository;
 import com.example.simplynote.room.dao.NoteDao;
 import com.example.simplynote.room.model.Note;
-import com.example.simplynote.room.repository.NoteRepository;
 
 import java.util.List;
 

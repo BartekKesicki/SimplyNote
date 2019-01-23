@@ -1,6 +1,5 @@
 package com.example.simplynote.login;
 
-import com.example.simplynote.base.BaseContract;
 
 public class LoginActivityPresenter implements LoginContract.LoginPresenter<LoginContract.LoginView> {
 
@@ -17,7 +16,7 @@ public class LoginActivityPresenter implements LoginContract.LoginPresenter<Logi
     }
 
     public void performToRedirectToRegisterPage() {
-        //todo redirect to register page
+        view.redirectToRegisterActivity();
     }
 
     public void performToLogin(String login, String password) {

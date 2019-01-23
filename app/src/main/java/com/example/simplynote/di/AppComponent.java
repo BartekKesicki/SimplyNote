@@ -5,7 +5,12 @@ import android.app.Application;
 import dagger.BindsInstance;
 import dagger.Component;
 
-@Component(modules = {AppModule.class, RepositoryModule.class, BuildersModule.class, PresentersModule.class})
+@Component(modules = {
+        AppModule.class,
+        RepositoryModule.class,
+        BuildersModule.class,
+        PresentersModule.class,
+        UseCaseModule.class})
 public interface AppComponent {
     @Component.Builder
     interface Builder {

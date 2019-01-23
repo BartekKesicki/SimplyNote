@@ -1,10 +1,23 @@
 package com.example.simplynote.register;
 
+import com.example.simplynote.repository.UserRepository;
+import com.example.simplynote.utils.StringProvider;
+
+import javax.inject.Inject;
+
 public class RegisterActivityPresenter implements RegisterContract.RegisterPresenter<RegisterContract.RegisterView> {
 
     RegisterContract.RegisterView view;
 
-    //todo constructor with string provider
+    private StringProvider mStringProvider;
+
+    private UserRepository mUserRepository;
+
+    @Inject
+    public RegisterActivityPresenter(StringProvider stringProvider, UserRepository userRepository) {
+        this.mStringProvider = stringProvider;
+        this.mUserRepository = userRepository;
+    }
 
     @Override
     public void attach(RegisterContract.RegisterView view) {

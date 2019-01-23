@@ -5,10 +5,10 @@ import android.content.Context;
 import com.example.simplynote.room.dao.NoteDao;
 import com.example.simplynote.room.dao.UserDao;
 import com.example.simplynote.room.db.AppDatabase;
-import com.example.simplynote.room.repository.NoteRepository;
-import com.example.simplynote.room.repository.UserRepository;
-import com.example.simplynote.room.repository.impl.NoteRepositoryImpl;
-import com.example.simplynote.room.repository.impl.UserRepositoryImpl;
+import com.example.simplynote.repository.NoteRepository;
+import com.example.simplynote.repository.UserRepository;
+import com.example.simplynote.repository.impl.NoteRepositoryImpl;
+import com.example.simplynote.repository.impl.UserRepositoryImpl;
 
 import javax.inject.Singleton;
 

@@ -1,4 +1,4 @@
-package com.example.simplynote.room.repository;
+package com.example.simplynote.repository;
 
 import com.example.simplynote.room.model.User;
 
