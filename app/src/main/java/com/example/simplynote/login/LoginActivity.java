@@ -85,4 +85,10 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
         loginEdittext.setError(null);
         passwordEdittext.setError(null);
     }
+
+    @Override
+    protected void onDestroy() {
+        presenter.detach();
+        super.onDestroy();
+    }
 }

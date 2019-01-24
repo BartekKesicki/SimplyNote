@@ -31,4 +31,10 @@ public class MainActivity extends BaseActivity implements MainContract.MainView 
         setContentView(R.layout.activity_main);
         presenter.attach(this);
     }
+
+    @Override
+    protected void onDestroy() {
+        presenter.detach();
+        super.onDestroy();
+    }
 }

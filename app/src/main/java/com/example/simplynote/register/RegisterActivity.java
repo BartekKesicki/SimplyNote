@@ -73,4 +73,10 @@ public class RegisterActivity extends BaseActivity implements RegisterContract.R
         passwordEditText.setError(null);
         confirmPasswordEditText.setError(null);
     }
+
+    @Override
+    protected void onDestroy() {
+        presenter.detach();
+        super.onDestroy();
+    }
 }
