@@ -9,6 +9,8 @@ public class RegisterContract {
         void setPasswordError(String message);
         void setConfirmPasswordMessage(String message);
         void clearAllErrors();
+        void showToast(String message);
+        void redirectToLoginActivity();
     }
 
     public interface RegisterPresenter<V> extends BaseContract.BasePresenter<V> {
@@ -24,5 +26,9 @@ public class RegisterContract {
         public void setConfirmPasswordMessage(String message) { }
         @Override
         public void clearAllErrors() { }
+        @Override
+        public void showToast(String message) { }
+        @Override
+        public void redirectToLoginActivity() { }
     };
 }

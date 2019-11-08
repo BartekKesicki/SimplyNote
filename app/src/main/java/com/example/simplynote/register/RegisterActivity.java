@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.simplynote.R;
 import com.example.simplynote.base.BaseActivity;
+import com.example.simplynote.login.LoginActivity;
 
 import javax.inject.Inject;
 
@@ -72,6 +74,16 @@ public class RegisterActivity extends BaseActivity implements RegisterContract.R
         loginEditText.setError(null);
         passwordEditText.setError(null);
         confirmPasswordEditText.setError(null);
+    }
+
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(this, getString(R.string.registration_user_insertion_failed), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void redirectToLoginActivity() {
+        LoginActivity.start(this);
     }
 
     @Override

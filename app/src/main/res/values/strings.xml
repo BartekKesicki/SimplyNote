@@ -7,4 +7,8 @@
     <string name="login_incorrect_inputs_message">Incorrect credentials</string>
     <string name="registration_confirm_password">Confirm password</string>
     <string name="registration_register_button_hint">Register</string>
+    <string name="registration_this_field_cant_be_empty">This field can not be empty</string>
+    <string name="registration_user_already_exists">User already exists</string>
+    <string name="registration_user_insertion_failed">User can not be added</string>
+    <string name="registration_user_added_message">User added</string>
 </resources>
