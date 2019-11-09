@@ -81,6 +81,11 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
     }
 
     @Override
+    public void redirectToHomePage() {
+        //todo create home page
+    }
+
+    @Override
     public void clearErrors() {
         loginEdittext.setError(null);
         passwordEdittext.setError(null);

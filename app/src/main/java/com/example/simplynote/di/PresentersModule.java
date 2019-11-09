@@ -16,8 +16,8 @@ public class PresentersModule {
 
     @Provides
     @Singleton
-    public LoginActivityPresenter provideLoginActivityPresenter(StringProvider stringProvider, UserRepository userRepository) {
-        return new LoginActivityPresenter(stringProvider, userRepository);
+    public LoginActivityPresenter provideLoginActivityPresenter(StringProvider stringProvider, UserRepository userRepository, BaseScheduler baseScheduler) {
+        return new LoginActivityPresenter(stringProvider, userRepository, baseScheduler);
     }
 
     @Provides
