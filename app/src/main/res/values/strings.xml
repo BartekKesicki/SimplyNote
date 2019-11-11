@@ -11,4 +11,6 @@
     <string name="registration_user_already_exists">User already exists</string>
     <string name="registration_user_insertion_failed">User can not be added</string>
     <string name="registration_user_added_message">User added</string>
+    <string name="home_checklists_tab_item">Checklists</string>
+    <string name="home_notes_tab_item">Notes</string>
 </resources>
