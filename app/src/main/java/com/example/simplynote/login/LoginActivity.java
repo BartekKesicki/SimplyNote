@@ -9,6 +9,7 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import com.example.simplynote.R;
 import com.example.simplynote.base.BaseActivity;
+import com.example.simplynote.home.HomeActivity;
 import com.example.simplynote.register.RegisterActivity;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -82,7 +83,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
 
     @Override
     public void redirectToHomePage() {
-        //todo create home page
+        HomeActivity.start(this);
     }
 
     @Override
