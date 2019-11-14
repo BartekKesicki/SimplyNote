@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.simplynote.checklists_fragment.CheckListFragment;
+import com.example.simplynote.error.ErrorFragment;
 import com.example.simplynote.notes_list_fragment.NotesListFragment;
 
 public class HomeTabsAdapter extends FragmentPagerAdapter {
@@ -18,6 +19,7 @@ public class HomeTabsAdapter extends FragmentPagerAdapter {
     private int count;
     private CheckListFragment checkListFragment;
     private NotesListFragment notesListFragment;
+    private ErrorFragment errorFragment;
 
     public HomeTabsAdapter(Context context, @NonNull FragmentManager fm, int count) {
         super(fm, count);
@@ -29,6 +31,7 @@ public class HomeTabsAdapter extends FragmentPagerAdapter {
     private void initializeFragments() {
         checkListFragment = CheckListFragment.newInstance();
         notesListFragment = NotesListFragment.newInstance();
+        errorFragment = ErrorFragment.newInstance();
     }
 
     @NonNull
@@ -37,7 +40,7 @@ public class HomeTabsAdapter extends FragmentPagerAdapter {
         switch (position) {
             case CHECKLIST_FRAGMENT_INDEX: return checkListFragment;
             case NOTESLIST_FRAGMENT_INDEX: return notesListFragment;
-            default: return new Fragment(); //todo consider use error fragment
+            default: return errorFragment;
         }
     }
 

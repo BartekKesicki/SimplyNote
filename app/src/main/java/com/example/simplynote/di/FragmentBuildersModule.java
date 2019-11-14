@@ -1,6 +1,7 @@
 package com.example.simplynote.di;
 
 import com.example.simplynote.checklists_fragment.CheckListFragment;
+import com.example.simplynote.error.ErrorFragment;
 import com.example.simplynote.notes_list_fragment.NotesListFragment;
 
 import dagger.Module;
@@ -14,4 +15,7 @@ public abstract class FragmentBuildersModule {
 
     @ContributesAndroidInjector
     public abstract NotesListFragment bindNotesListFragment();
+
+    @ContributesAndroidInjector
+    public abstract ErrorFragment bindErrorFragment();
 }
