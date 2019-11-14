@@ -9,6 +9,7 @@ import dagger.Component;
         AppModule.class,
         RepositoryModule.class,
         BuildersModule.class,
+        FragmentBuildersModule.class,
         PresentersModule.class,
         UseCaseModule.class})
 public interface AppComponent {
