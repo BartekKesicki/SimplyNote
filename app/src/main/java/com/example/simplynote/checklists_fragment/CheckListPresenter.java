@@ -1,6 +1,6 @@
 package com.example.simplynote.checklists_fragment;
 
-public class CheckListPresenter implements CheckListFragmentContract.ChecListFragmentPresenter<CheckListFragmentContract.CheckListView> {
+public class CheckListPresenter implements CheckListFragmentContract.CheckListFragmentPresenter<CheckListFragmentContract.CheckListView> {
 
     private CheckListFragmentContract.CheckListView view;
 

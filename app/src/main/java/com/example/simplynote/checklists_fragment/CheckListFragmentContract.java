@@ -6,7 +6,7 @@ public class CheckListFragmentContract {
 
     public interface CheckListView extends BaseContract.BaseView {}
 
-    public interface ChecListFragmentPresenter<V> extends BaseContract.BasePresenter<V> { }
+    public interface CheckListFragmentPresenter<V> extends BaseContract.BasePresenter<V> { }
 
     public static CheckListView NULL = new CheckListView() { };
 }

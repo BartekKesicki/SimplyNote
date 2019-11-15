@@ -1,7 +1,10 @@
 package com.example.simplynote.di;
 
+import com.example.simplynote.checklists_fragment.CheckListPresenter;
+import com.example.simplynote.error.ErrorFragmentPresenter;
 import com.example.simplynote.home.HomeActivityPresenter;
 import com.example.simplynote.login.LoginActivityPresenter;
+import com.example.simplynote.notes_list_fragment.NotesListPresenter;
 import com.example.simplynote.register.RegisterActivityPresenter;
 import com.example.simplynote.repository.UserRepository;
 import com.example.simplynote.utils.BaseScheduler;
@@ -31,5 +34,23 @@ public class PresentersModule {
     @Singleton
     public HomeActivityPresenter provideHomeActivityPresenter() {
         return new HomeActivityPresenter();
+    }
+
+    @Provides
+    @Singleton
+    public CheckListPresenter provideCheckListPresenter() {
+        return new CheckListPresenter();
+    }
+
+    @Provides
+    @Singleton
+    public NotesListPresenter provideNotesListPresenter() {
+        return new NotesListPresenter();
+    }
+
+    @Provides
+    @Singleton
+    public ErrorFragmentPresenter provideErrorFragmentPresenter() {
+        return new ErrorFragmentPresenter();
     }
 }
