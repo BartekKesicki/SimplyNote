@@ -25,6 +25,8 @@ public class CheckListFragment extends BaseFragment implements CheckListFragment
     @Inject
     CheckListPresenter presenter;
 
+    //todo initialize checklist adapter
+
     @Override
     public void onAttach(@NonNull Context context) {
         AndroidSupportInjection.inject(this);

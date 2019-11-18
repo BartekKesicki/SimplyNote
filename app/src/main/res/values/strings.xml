@@ -14,4 +14,5 @@
     <string name="home_checklists_tab_item">Checklists</string>
     <string name="home_notes_tab_item">Notes</string>
     <string name="home_error_fragment_text">ERROR</string>
+    <string name="checklist_fragment_add_new_check_list_button_text">Add new Checklist</string>
 </resources>

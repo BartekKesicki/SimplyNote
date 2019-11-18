@@ -13,5 +13,4 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="@string/home_error_fragment_text"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
