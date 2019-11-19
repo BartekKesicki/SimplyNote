@@ -19,31 +19,26 @@ import dagger.Provides;
 public class RepositoryModule {
 
     @Provides
-    @Singleton
     public AppDatabase provideDatabase(Context context) {
         return AppDatabase.getInstance(context);
     }
 
     @Provides
-    @Singleton
     public UserDao provideUserDao(AppDatabase db) {
         return db.userDao();
     }
 
     @Provides
-    @Singleton
     public NoteDao provideNoteDao(AppDatabase db) {
         return db.noteDao();
     }
 
     @Provides
-    @Singleton
     public NoteRepository provideNoteRepository(NoteDao noteDao) {
         return new NoteRepositoryImpl(noteDao);
     }
 
     @Provides
-    @Singleton
     public UserRepository provideUserRepository(UserDao userDao) {
         return new UserRepositoryImpl(userDao);
     }

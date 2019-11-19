@@ -1,11 +1,16 @@
 package com.example.simplynote.di;
 
-import android.app.Application;
+import javax.inject.Singleton;
 
 import dagger.BindsInstance;
 import dagger.Component;
+import dagger.android.AndroidInjectionModule;
+import dagger.android.support.AndroidSupportInjectionModule;
 
+@Singleton
 @Component(modules = {
+        AndroidInjectionModule.class,
+        AndroidSupportInjectionModule.class,
         AppModule.class,
         RepositoryModule.class,
         BuildersModule.class,
@@ -17,7 +22,7 @@ public interface AppComponent {
     interface Builder {
 
         @BindsInstance
-        Builder application(Application application);
+        Builder application(AppController application);
 
         AppComponent build();
     }

@@ -5,8 +5,6 @@ import android.content.Context;
 import com.example.simplynote.utils.StringProvider;
 import com.example.simplynote.utils.impl.StringProviderImpl;
 
-import javax.inject.Singleton;
-
 import dagger.Module;
 import dagger.Provides;
 
@@ -14,7 +12,6 @@ import dagger.Provides;
 public class UseCaseModule {
 
     @Provides
-    @Singleton
     public StringProvider provideStringProvider(Context context) {
         return new StringProviderImpl(context);
     }
