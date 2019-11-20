@@ -29,6 +29,7 @@ public class MainActivity extends BaseActivity implements MainContract.MainView 
         AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        super.bind();
         presenter.attach(this);
     }
 

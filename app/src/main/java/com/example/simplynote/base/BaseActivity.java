@@ -11,9 +11,7 @@ public class BaseActivity extends AppCompatActivity {
 
     protected Unbinder unbinder;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void bind() {
         unbinder = ButterKnife.bind(this);
     }
 

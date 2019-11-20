@@ -42,6 +42,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
         AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        super.bind();
         presenter.attach(this);
         setButtonListeners();
     }

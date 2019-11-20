@@ -24,6 +24,10 @@ public class HomeActivity extends BaseActivity implements HomeContract.HomeView 
     }
 
     private static final int TABS_COUNT = 2;
+    private static final int CHECKLISTS_FRAGMENT_INDEX = 0;
+    private static final int NOTES_FRAGMENT_INDEX = 1;
+
+    //todo remove toolbar
 
     @Inject
     HomeActivityPresenter presenter;
@@ -37,17 +41,19 @@ public class HomeActivity extends BaseActivity implements HomeContract.HomeView 
         AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        super.bind();
         presenter.attach(this);
         initializeTabLayout();
     }
 
     private void initializeTabLayout() {
-        tabLayout.addTab(new TabLayout.Tab().setText(R.string.home_checklists_tab_item));
-        tabLayout.addTab(new TabLayout.Tab().setText(R.string.home_notes_tab_item));
-
         final HomeTabsAdapter myAdapter = new HomeTabsAdapter(this, getSupportFragmentManager(), TABS_COUNT);
         viewPager.setAdapter(myAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.getTabAt(CHECKLISTS_FRAGMENT_INDEX).setText(R.string.home_checklists_tab_item);
+        tabLayout.getTabAt(NOTES_FRAGMENT_INDEX).setText(R.string.home_notes_tab_item);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

@@ -40,6 +40,7 @@ public class RegisterActivity extends BaseActivity implements RegisterContract.R
         AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        super.bind();
         presenter.attach(this);
         setButtonListeners();
     }
