@@ -39,6 +39,7 @@ public class RegisterActivity extends BaseActivity implements RegisterContract.R
     protected void onCreate(Bundle savedInstanceState) {
         AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_register);
         super.bind();
         presenter.attach(this);

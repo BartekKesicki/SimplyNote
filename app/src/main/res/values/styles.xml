@@ -11,6 +11,6 @@
     <style name="AppTheme.NoActionBar">
         <!-- Both of these are needed -->
         <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 </resources>
