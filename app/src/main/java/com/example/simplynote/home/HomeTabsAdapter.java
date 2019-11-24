@@ -1,6 +1,5 @@
 package com.example.simplynote.home;
 
-import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

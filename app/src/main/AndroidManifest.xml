@@ -21,6 +21,7 @@
         <activity android:name=".base.BaseActivity" android:screenOrientation="portrait" />
         <activity android:name=".register.RegisterActivity" android:screenOrientation="portrait" />
         <activity android:name=".home.HomeActivity" android:screenOrientation="portrait" />
+        <activity android:name=".new_checkilist.NewCheckListActivity" android:screenOrientation="portrait" />
     </application>
 
 </manifest>
