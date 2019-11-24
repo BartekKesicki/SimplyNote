@@ -22,6 +22,7 @@
         <activity android:name=".register.RegisterActivity" android:screenOrientation="portrait" />
         <activity android:name=".home.HomeActivity" android:screenOrientation="portrait" />
         <activity android:name=".new_checkilist.NewCheckListActivity" android:screenOrientation="portrait" />
+        <activity android:name=".new_note.NewNoteActivity" android:screenOrientation="portrait" />
     </application>
 
 </manifest>
