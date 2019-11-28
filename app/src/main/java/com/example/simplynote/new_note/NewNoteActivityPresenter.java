@@ -9,6 +9,10 @@ public class NewNoteActivityPresenter implements NewNoteContract.NewNotePresente
         this.view = view;
     }
 
+    public void addNewNote(String title, String content) {
+        //todo create and add new note
+    }
+
     @Override
     public void detach() {
         this.view = NewNoteContract.NULL;
