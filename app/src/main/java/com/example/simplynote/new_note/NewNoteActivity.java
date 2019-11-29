@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 
 import com.example.simplynote.R;
 import com.example.simplynote.base.BaseActivity;
+import com.example.simplynote.home.HomeActivity;
 
 import javax.inject.Inject;
 
@@ -52,5 +53,26 @@ public class NewNoteActivity extends BaseActivity implements NewNoteContract.New
     protected void onDestroy() {
         presenter.detach();
         super.onDestroy();
+    }
+
+    @Override
+    public void setTitleError() {
+        titleEditText.setError(getString(R.string.new_note_validation_error));
+    }
+
+    @Override
+    public void setContentError() {
+        noteEditText.setError(getString(R.string.new_note_validation_error));
+    }
+
+    @Override
+    public void clearAllErrors() {
+        titleEditText.setError(null);
+        noteEditText.setError(null);
+    }
+
+    @Override
+    public void redirectToHomePage() {
+        HomeActivity.start(this);
     }
 }
