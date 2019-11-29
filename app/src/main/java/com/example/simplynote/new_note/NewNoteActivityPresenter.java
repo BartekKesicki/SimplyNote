@@ -1,5 +1,7 @@
 package com.example.simplynote.new_note;
 
+import android.text.TextUtils;
+
 public class NewNoteActivityPresenter implements NewNoteContract.NewNotePresenter<NewNoteContract.NewNoteView> {
 
     private NewNoteContract.NewNoteView view;
@@ -10,7 +12,17 @@ public class NewNoteActivityPresenter implements NewNoteContract.NewNotePresente
     }
 
     public void addNewNote(String title, String content) {
-        //todo create and add new note
+        view.clearAllErrors();
+        if (TextUtils.isEmpty(title)) {
+            view.setTitleError();
+            return;
+        }
+        if (TextUtils.isEmpty(content)) {
+            view.setContentError();
+            return;
+        }
+
+        //todo add insertion of note
     }
 
     @Override

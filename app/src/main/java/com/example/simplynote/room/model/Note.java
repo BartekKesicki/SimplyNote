@@ -12,8 +12,8 @@ public class Note {
     @ColumnInfo(name = "content")
     private  String content;
 
-    @ColumnInfo(name = "creationDate")
-    private  String creationDate;
+    @ColumnInfo(name = "creationTime")
+    private long creationTime;
 
     public long getId() {
         return id;
@@ -31,11 +31,11 @@ public class Note {
         this.content = content;
     }
 
-    public String getCreationDate() {
-        return creationDate;
+    public long getCreationTime() {
+        return creationTime;
     }
 
-    public void setCreationDate(String creationDate) {
-        this.creationDate = creationDate;
+    public void setCreationTime(long creationTime) {
+        this.creationTime = creationTime;
     }
 }
