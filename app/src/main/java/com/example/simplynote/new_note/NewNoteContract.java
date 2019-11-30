@@ -11,6 +11,8 @@ public class NewNoteContract {
         void setContentError();
         void clearAllErrors();
         void redirectToHomePage();
+        void displayNoteInsertionFailureMessage();
+        void displaySuccessNoteInsertionMessage();
     }
 
     public static NewNoteView NULL = new NewNoteView() {
@@ -22,5 +24,9 @@ public class NewNoteContract {
         public void clearAllErrors() { }
         @Override
         public void redirectToHomePage() { }
+        @Override
+        public void displayNoteInsertionFailureMessage() { }
+        @Override
+        public void displaySuccessNoteInsertionMessage() { }
     };
 }

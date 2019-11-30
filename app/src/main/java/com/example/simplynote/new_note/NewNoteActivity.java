@@ -75,4 +75,14 @@ public class NewNoteActivity extends BaseActivity implements NewNoteContract.New
     public void redirectToHomePage() {
         HomeActivity.start(this);
     }
+
+    @Override
+    public void displayNoteInsertionFailureMessage() {
+        toast(getString(R.string.new_note_insertion_failure_message));
+    }
+
+    @Override
+    public void displaySuccessNoteInsertionMessage() {
+        toast(getString(R.string.new_note_insertion_succeed));
+    }
 }

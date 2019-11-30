@@ -48,7 +48,7 @@ public class NewNoteActivityPresenter implements NewNoteContract.NewNotePresente
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        //todo display toast
+                        view.displaySuccessNoteInsertionMessage();
                         view.redirectToHomePage();
                     }
 
@@ -59,7 +59,7 @@ public class NewNoteActivityPresenter implements NewNoteContract.NewNotePresente
 
                     @Override
                     public void onError(Throwable e) {
-                        //todo display error
+                        view.displayNoteInsertionFailureMessage();
                     }
                 });
     }
