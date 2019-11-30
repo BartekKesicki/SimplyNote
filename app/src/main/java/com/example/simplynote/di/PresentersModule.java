@@ -9,6 +9,7 @@ import com.example.simplynote.new_checkilist.NewChecklistActivityPresenter;
 import com.example.simplynote.new_note.NewNoteActivityPresenter;
 import com.example.simplynote.notes_list_fragment.NotesListPresenter;
 import com.example.simplynote.register.RegisterActivityPresenter;
+import com.example.simplynote.repository.NoteRepository;
 import com.example.simplynote.repository.UserRepository;
 import com.example.simplynote.utils.BaseScheduler;
 import com.example.simplynote.utils.StringProvider;
@@ -71,7 +72,7 @@ public class PresentersModule {
 
     @Provides
     @Singleton
-    public NewNoteActivityPresenter provideNewNoteActivityPresenter() {
-        return new NewNoteActivityPresenter();
+    public NewNoteActivityPresenter provideNewNoteActivityPresenter(NoteRepository noteRepository, BaseScheduler baseScheduler) {
+        return new NewNoteActivityPresenter(noteRepository, baseScheduler);
     }
 }
