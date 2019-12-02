@@ -23,4 +23,8 @@
     <string name="new_note_validation_error">This field can not be empty</string>
     <string name="new_note_insertion_failure_message">Insertion of new Note failed</string>
     <string name="new_note_insertion_succeed">Note inserted</string>
+    <string name="new_checklist_top_label">New Checklist</string>
+    <string name="new_checklist_title_hint">Checklist name</string>
+    <string name="new_checklist_content_hint">Checklist item</string>
+    <string name="new_checklist_add_new_checklist">ADD NEW CHECKLIST</string>
 </resources>
