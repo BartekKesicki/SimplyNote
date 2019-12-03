@@ -39,16 +39,32 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:orientation="vertical"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/checklist_items_container"
         app:layout_constraintTop_toBottomOf="@id/new_checklist_title_textinput"
         />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/submit_button"
+        android:text="@string/new_checklist_add_new_item"
+        android:id="@+id/new_item_button"
+        android:background="@color/colorBlack"
+        android:textColor="@color/colorWhite"/>
 
     <Button
         android:layout_width="match_parent"
