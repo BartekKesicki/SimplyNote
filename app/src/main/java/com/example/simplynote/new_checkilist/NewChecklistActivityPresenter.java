@@ -9,7 +9,13 @@ public class NewChecklistActivityPresenter implements NewCheckListContract.NewCh
         this.view = view;
     }
 
-    //todo add methods for checklist layout
+    public void performAddNewChecklistRow() {
+        //todo add checklist row
+    }
+
+    public void submitChecklistForm() {
+        //todo submit checklist row
+    }
 
     @Override
     public void detach() {

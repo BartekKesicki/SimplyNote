@@ -3,6 +3,8 @@ package com.example.simplynote.new_checkilist;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.Nullable;
 
@@ -12,6 +14,7 @@ import com.example.simplynote.utils.ChecklistItemManager;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import dagger.android.AndroidInjection;
 
 public class NewCheckListActivity extends BaseActivity implements NewCheckListContract.NewCheckListView {
@@ -27,6 +30,10 @@ public class NewCheckListActivity extends BaseActivity implements NewCheckListCo
     @Inject
     NewChecklistActivityPresenter presenter;
 
+    @BindView(R.id.submit_button) Button submitButton;
+
+    @BindView(R.id.new_item_button) Button newItemButton;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         AndroidInjection.inject(this);
@@ -35,7 +42,23 @@ public class NewCheckListActivity extends BaseActivity implements NewCheckListCo
         setContentView(R.layout.activity_new_checklist);
         super.bind();
         presenter.attach(this);
-        //todo set listeners
+        setListeners();
+    }
+
+    private void setListeners() {
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.submitChecklistForm();
+            }
+        });
+
+        newItemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.performAddNewChecklistRow();
+            }
+        });
     }
 
     @Override
