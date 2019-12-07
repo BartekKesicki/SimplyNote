@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 
 import com.example.simplynote.R;
 import com.example.simplynote.base.BaseActivity;
+import com.example.simplynote.utils.ChecklistItemManager;
 
 import javax.inject.Inject;
 
@@ -19,6 +20,9 @@ public class NewCheckListActivity extends BaseActivity implements NewCheckListCo
         Intent intent = new Intent(context, NewCheckListActivity.class);
         context.startActivity(intent);
     }
+
+    @Inject
+    ChecklistItemManager checklistItemManager;
 
     @Inject
     NewChecklistActivityPresenter presenter;
