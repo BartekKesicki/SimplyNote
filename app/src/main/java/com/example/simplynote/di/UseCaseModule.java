@@ -19,7 +19,7 @@ public class UseCaseModule {
     }
 
     @Provides
-    public ChecklistItemManager provideChecklistItemManager(Context context) {
-        return new CheckListItemManagerImpl(context);
+    public ChecklistItemManager provideChecklistItemManager(Context context, StringProvider stringProvider) {
+        return new CheckListItemManagerImpl(context, stringProvider);
     }
 }
