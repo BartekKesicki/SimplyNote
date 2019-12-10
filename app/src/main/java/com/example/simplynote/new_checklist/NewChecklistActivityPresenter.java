@@ -1,4 +1,4 @@
-package com.example.simplynote.new_checkilist;
+package com.example.simplynote.new_checklist;
 
 public class NewChecklistActivityPresenter implements NewCheckListContract.NewCheckListPresenter<NewCheckListContract.NewCheckListView> {
 

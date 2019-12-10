@@ -27,8 +27,8 @@ public class CheckListItemManagerImpl implements ChecklistItemManager {
         textInputLayout.setHint(stringProvider.getString(R.string.new_checlist_new_item_label));
         textInputLayout.setBoxBackgroundMode(TextInputLayout.BOX_BACKGROUND_OUTLINE);
         textInputLayout.setBoxCornerRadii(5, 5, 5, 5);
-        TextInputEditText editetxt = new TextInputEditText(textInputLayout.getContext());
-        textInputLayout.addView(editetxt);
+        TextInputEditText editext = new TextInputEditText(textInputLayout.getContext());
+        textInputLayout.addView(editext);
         return textInputLayout;
     }
 }

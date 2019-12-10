@@ -5,7 +5,7 @@ import com.example.simplynote.error.ErrorFragmentPresenter;
 import com.example.simplynote.home.HomeActivityPresenter;
 import com.example.simplynote.login.LoginActivityPresenter;
 import com.example.simplynote.main.MainActivityPresenter;
-import com.example.simplynote.new_checkilist.NewChecklistActivityPresenter;
+import com.example.simplynote.new_checklist.NewChecklistActivityPresenter;
 import com.example.simplynote.new_note.NewNoteActivityPresenter;
 import com.example.simplynote.notes_list_fragment.NotesListPresenter;
 import com.example.simplynote.register.RegisterActivityPresenter;

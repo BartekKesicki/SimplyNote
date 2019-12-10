@@ -1,4 +1,4 @@
-package com.example.simplynote.new_checkilist;
+package com.example.simplynote.new_checklist;
 
 import android.content.Context;
 import android.content.Intent;
@@ -65,5 +65,15 @@ public class NewCheckListActivity extends BaseActivity implements NewCheckListCo
     protected void onDestroy() {
         presenter.detach();
         super.onDestroy();
+    }
+
+    @Override
+    public void addNewRow() {
+        //todo implement
+    }
+
+    @Override
+    public void removeRow(int id) {
+        //todo implement
     }
 }
