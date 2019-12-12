@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ScrollView;
 
 import androidx.annotation.Nullable;
 
@@ -33,6 +34,8 @@ public class NewCheckListActivity extends BaseActivity implements NewCheckListCo
     @BindView(R.id.submit_button) Button submitButton;
 
     @BindView(R.id.new_item_button) Button newItemButton;
+
+    @BindView(R.id.checklist_items_container) ScrollView scrollView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,11 +72,11 @@ public class NewCheckListActivity extends BaseActivity implements NewCheckListCo
 
     @Override
     public void addNewRow() {
-        //todo implement
+        scrollView.addView(checklistItemManager.createNewRow());
     }
 
     @Override
     public void removeRow(int id) {
-        //todo implement
+        scrollView.removeViewAt(id);
     }
 }
