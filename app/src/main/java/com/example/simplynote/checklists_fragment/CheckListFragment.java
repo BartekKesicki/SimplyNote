@@ -5,15 +5,18 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.simplynote.R;
 import com.example.simplynote.base.BaseFragment;
+import com.example.simplynote.new_checklist.NewCheckListActivity;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import dagger.android.support.AndroidSupportInjection;
 
 public class CheckListFragment extends BaseFragment implements CheckListFragmentContract.CheckListView {
@@ -25,6 +28,8 @@ public class CheckListFragment extends BaseFragment implements CheckListFragment
     @Inject
     CheckListPresenter presenter;
 
+    @BindView(R.id.add_new_checklist_button) Button addNewChecklistButton;
+
     //todo initialize checklist adapter
 
     @Override
@@ -32,6 +37,16 @@ public class CheckListFragment extends BaseFragment implements CheckListFragment
         AndroidSupportInjection.inject(this);
         super.onAttach(context);
         presenter.attach(this);
+        setButtonListeners();
+    }
+
+    private void setButtonListeners() {
+        addNewChecklistButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NewCheckListActivity.start(requireContext());
+            }
+        });
     }
 
     @Nullable
