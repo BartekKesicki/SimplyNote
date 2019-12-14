@@ -1,6 +1,8 @@
 package com.example.simplynote.utils.impl;
 
 import android.content.Context;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.example.simplynote.R;
 import com.example.simplynote.utils.ChecklistItemManager;
@@ -22,7 +24,23 @@ public class CheckListItemManagerImpl implements ChecklistItemManager {
     }
 
     @Override
-    public TextInputLayout createNewRow() {
+    public LinearLayout createNewRow() {
+        LinearLayout linearLayout = new LinearLayout(mContext);
+        linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+        TextInputLayout textInputLayout = createTextInputLayout();
+        linearLayout.addView(textInputLayout);
+        Button removeItemButton = createRemoveItemButton();
+        linearLayout.addView(removeItemButton);
+        return linearLayout;
+    }
+
+    private Button createRemoveItemButton() {
+        Button button = new Button(mContext);
+        //todo add listener and text
+        return button;
+    }
+
+    private TextInputLayout createTextInputLayout() {
         TextInputLayout textInputLayout = new TextInputLayout(mContext, null);
         textInputLayout.setHint(stringProvider.getString(R.string.new_checlist_new_item_label));
         textInputLayout.setBoxBackgroundMode(TextInputLayout.BOX_BACKGROUND_OUTLINE);

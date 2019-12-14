@@ -1,7 +1,7 @@
 package com.example.simplynote.utils;
 
-import com.google.android.material.textfield.TextInputLayout;
+import android.widget.LinearLayout;
 
 public interface ChecklistItemManager {
-    TextInputLayout createNewRow();
+    LinearLayout createNewRow();
 }
