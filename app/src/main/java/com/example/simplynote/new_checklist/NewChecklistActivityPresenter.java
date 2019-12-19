@@ -10,7 +10,7 @@ public class NewChecklistActivityPresenter implements NewCheckListContract.NewCh
     }
 
     public void performAddNewChecklistRow() {
-        //todo add checklist row
+        view.addNewRow();
     }
 
     public void submitChecklistForm() {
