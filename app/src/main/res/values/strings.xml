@@ -29,5 +29,7 @@
     <string name="new_checklist_add_new_checklist">ADD NEW CHECKLIST</string>
     <string name="new_checklist_add_new_item">ADD NEW ITEM</string>
     <string name="new_checlist_new_item_label">New Checklist Item</string>
-<!--    <string name="new_checklist_remove_row_prompt"></string>-->
+    <string name="new_checklist_remove_row_prompt">Do you want to remove this row?</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
 </resources>
