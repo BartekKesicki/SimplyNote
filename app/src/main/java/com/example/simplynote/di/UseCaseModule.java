@@ -2,8 +2,10 @@ package com.example.simplynote.di;
 
 import android.content.Context;
 
+import com.example.simplynote.utils.AlertDialogManager;
 import com.example.simplynote.utils.ChecklistItemManager;
 import com.example.simplynote.utils.StringProvider;
+import com.example.simplynote.utils.impl.AlertDialogManagerImpl;
 import com.example.simplynote.utils.impl.CheckListItemManagerImpl;
 import com.example.simplynote.utils.impl.StringProviderImpl;
 
@@ -21,5 +23,10 @@ public class UseCaseModule {
     @Provides
     public ChecklistItemManager provideChecklistItemManager(Context context, StringProvider stringProvider) {
         return new CheckListItemManagerImpl(context, stringProvider);
+    }
+
+    @Provides
+    public AlertDialogManager provideAlertDialogManager(Context context) {
+        return new AlertDialogManagerImpl(context);
     }
 }

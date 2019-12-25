@@ -13,6 +13,7 @@ import androidx.appcompat.app.AlertDialog;
 
 import com.example.simplynote.R;
 import com.example.simplynote.base.BaseActivity;
+import com.example.simplynote.utils.AlertDialogManager;
 import com.example.simplynote.utils.ChecklistItemManager;
 
 import javax.inject.Inject;
@@ -29,6 +30,9 @@ public class NewCheckListActivity extends BaseActivity implements NewCheckListCo
 
     @Inject
     ChecklistItemManager checklistItemManager;
+
+    @Inject
+    AlertDialogManager alertDialogManager;
 
     @Inject
     NewChecklistActivityPresenter presenter;
