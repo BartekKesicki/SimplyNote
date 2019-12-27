@@ -2,6 +2,7 @@ package com.example.simplynote.di;
 
 import android.content.Context;
 
+import com.example.simplynote.new_checklist.NewCheckListActivity;
 import com.example.simplynote.utils.AlertDialogManager;
 import com.example.simplynote.utils.ChecklistItemManager;
 import com.example.simplynote.utils.StringProvider;

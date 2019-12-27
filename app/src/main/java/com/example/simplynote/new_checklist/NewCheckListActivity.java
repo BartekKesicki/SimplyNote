@@ -58,8 +58,15 @@ public class NewCheckListActivity extends BaseActivity implements NewCheckListCo
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //todo alert dialog
-                presenter.submitChecklistForm();
+                alertDialogManager.createDialog(getString(R.string.yes), getString(R.string.no), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        presenter.submitChecklistForm();
+                    }
+                }, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }, getString(R.string.new_checklist_submit_prompt)).show();
             }
         });
 
@@ -79,7 +86,8 @@ public class NewCheckListActivity extends BaseActivity implements NewCheckListCo
 
     @Override
     public void addNewRow() {
-        scrollView.addView(checklistItemManager.createNewRow());
+        int id = scrollView.getChildCount();
+        scrollView.addView(checklistItemManager.createNewRow(this, id));
     }
 
     @Override
