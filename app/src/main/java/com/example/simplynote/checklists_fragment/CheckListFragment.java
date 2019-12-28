@@ -28,7 +28,7 @@ public class CheckListFragment extends BaseFragment implements CheckListFragment
     @Inject
     CheckListPresenter presenter;
 
-    @BindView(R.id.add_new_checklist_button) Button addNewChecklistButton;
+    private Button addNewChecklistButton;
 
     //todo initialize checklist adapter
 
@@ -37,6 +37,16 @@ public class CheckListFragment extends BaseFragment implements CheckListFragment
         AndroidSupportInjection.inject(this);
         super.onAttach(context);
         presenter.attach(this);
+    }
+
+    private void initializeUIControls(View view) {
+        addNewChecklistButton = view.findViewById(R.id.add_new_checklist_button);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initializeUIControls(view);
         setButtonListeners();
     }
 

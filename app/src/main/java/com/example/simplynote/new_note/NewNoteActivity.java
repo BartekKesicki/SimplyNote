@@ -1,5 +1,7 @@
 package com.example.simplynote.new_note;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +19,11 @@ import butterknife.BindView;
 import dagger.android.AndroidInjection;
 
 public class NewNoteActivity extends BaseActivity implements NewNoteContract.NewNoteView {
+
+    public static void start(Context context) {
+        Intent intent = new Intent(context, NewNoteActivity.class);
+        context.startActivity(intent);
+    }
 
     @Inject
     NewNoteActivityPresenter presenter;
