@@ -22,12 +22,12 @@ public class UseCaseModule {
     }
 
     @Provides
-    public ChecklistItemManager provideChecklistItemManager(Context context, StringProvider stringProvider) {
-        return new CheckListItemManagerImpl(context, stringProvider);
+    public ChecklistItemManager provideChecklistItemManager(StringProvider stringProvider) {
+        return new CheckListItemManagerImpl(stringProvider);
     }
 
     @Provides
-    public AlertDialogManager provideAlertDialogManager(Context context) {
-        return new AlertDialogManagerImpl(context);
+    public AlertDialogManager provideAlertDialogManager() {
+        return new AlertDialogManagerImpl();
     }
 }

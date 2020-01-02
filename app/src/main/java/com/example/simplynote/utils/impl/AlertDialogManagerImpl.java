@@ -14,8 +14,8 @@ public class AlertDialogManagerImpl implements AlertDialogManager {
     private Context mContext;
 
     @Inject
-    public AlertDialogManagerImpl(Context context) {
-        this.mContext = context;
+    public AlertDialogManagerImpl() {
+        //todo add other properties (WIP)
     }
 
     @Override
@@ -25,5 +25,10 @@ public class AlertDialogManagerImpl implements AlertDialogManager {
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, positiveButtonText, positiveListener);
         alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, negativeButtonText, negativeListener);
         return alertDialog;
+    }
+
+    @Override
+    public void setMContext(Context context) {
+        this.mContext = context;
     }
 }

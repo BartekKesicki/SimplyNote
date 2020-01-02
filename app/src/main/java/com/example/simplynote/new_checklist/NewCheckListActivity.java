@@ -6,10 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ScrollView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 
 import com.example.simplynote.R;
 import com.example.simplynote.base.BaseActivity;
@@ -41,7 +40,7 @@ public class NewCheckListActivity extends BaseActivity implements NewCheckListCo
 
     @BindView(R.id.new_item_button) Button newItemButton;
 
-    @BindView(R.id.checklist_items_container) ScrollView scrollView;
+    @BindView(R.id.checklist_items_container) LinearLayout checkListContainer;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,6 +50,8 @@ public class NewCheckListActivity extends BaseActivity implements NewCheckListCo
         setContentView(R.layout.activity_new_checklist);
         super.bind();
         presenter.attach(this);
+        checklistItemManager.setMContext(this);
+        alertDialogManager.setMContext(this);
         setListeners();
     }
 
@@ -86,13 +87,13 @@ public class NewCheckListActivity extends BaseActivity implements NewCheckListCo
 
     @Override
     public void addNewRow() {
-        int id = scrollView.getChildCount();
-        scrollView.addView(checklistItemManager.createNewRow(this, id));
+        int id = checkListContainer.getChildCount();
+        checkListContainer.addView(checklistItemManager.createNewRow(this, id));
     }
 
     @Override
     public void removeRow(int id) {
-        scrollView.removeViewAt(id);
+        checkListContainer.removeViewAt(id);
     }
 
     @Override
