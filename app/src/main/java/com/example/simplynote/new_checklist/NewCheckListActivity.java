@@ -36,9 +36,11 @@ public class NewCheckListActivity extends BaseActivity implements NewCheckListCo
     @Inject
     NewChecklistActivityPresenter presenter;
 
-    @BindView(R.id.submit_button) Button submitButton;
+    @BindView(R.id.save_button) Button submitButton;
 
-    @BindView(R.id.new_item_button) Button newItemButton;
+    @BindView(R.id.cancel_button) Button cancelButton;
+
+    @BindView(R.id.add_new_item_button) View newItemButton;
 
     @BindView(R.id.checklist_items_container) LinearLayout checkListContainer;
 
@@ -68,6 +70,13 @@ public class NewCheckListActivity extends BaseActivity implements NewCheckListCo
                         dialog.dismiss();
                     }
                 }, getString(R.string.new_checklist_submit_prompt)).show();
+            }
+        });
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NewCheckListActivity.super.onBackPressed();
             }
         });
 
