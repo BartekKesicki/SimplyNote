@@ -2,7 +2,6 @@ package com.example.simplynote.di;
 
 import com.example.simplynote.home.HomeActivity;
 import com.example.simplynote.login.LoginActivity;
-import com.example.simplynote.main.MainActivity;
 import com.example.simplynote.new_checklist.NewCheckListActivity;
 import com.example.simplynote.new_note.NewNoteActivity;
 import com.example.simplynote.register.RegisterActivity;
@@ -15,9 +14,6 @@ public abstract class BuildersModule {
 
     @ContributesAndroidInjector
     public abstract LoginActivity bindLoginActivity();
-
-    @ContributesAndroidInjector
-    public abstract MainActivity bindMainActivity();
 
     @ContributesAndroidInjector
     public abstract RegisterActivity bindRegisterActivity();

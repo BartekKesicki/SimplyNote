@@ -4,7 +4,6 @@ import com.example.simplynote.checklists_fragment.CheckListPresenter;
 import com.example.simplynote.error.ErrorFragmentPresenter;
 import com.example.simplynote.home.HomeActivityPresenter;
 import com.example.simplynote.login.LoginActivityPresenter;
-import com.example.simplynote.main.MainActivityPresenter;
 import com.example.simplynote.new_checklist.NewChecklistActivityPresenter;
 import com.example.simplynote.new_note.NewNoteActivityPresenter;
 import com.example.simplynote.notes_list_fragment.NotesListPresenter;
@@ -56,12 +55,6 @@ public class PresentersModule {
     @Singleton
     public ErrorFragmentPresenter provideErrorFragmentPresenter() {
         return new ErrorFragmentPresenter();
-    }
-
-    @Provides
-    @Singleton
-    public MainActivityPresenter provideMainActivityPresenter() {
-        return new MainActivityPresenter();
     }
 
     @Provides
