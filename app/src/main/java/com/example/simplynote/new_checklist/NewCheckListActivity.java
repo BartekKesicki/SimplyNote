@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
@@ -44,6 +45,8 @@ public class NewCheckListActivity extends BaseActivity implements NewCheckListCo
 
     @BindView(R.id.checklist_items_container) LinearLayout checkListContainer;
 
+    @BindView(R.id.new_checklist_title_edittext) EditText checklistName;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         AndroidInjection.inject(this);
@@ -63,7 +66,7 @@ public class NewCheckListActivity extends BaseActivity implements NewCheckListCo
             public void onClick(View view) {
                 alertDialogManager.createDialog(getString(R.string.yes), getString(R.string.no), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        presenter.submitChecklistForm();
+                        presenter.submitChecklistForm(checkListContainer, checklistName.getText().toString());
                     }
                 }, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -76,7 +79,7 @@ public class NewCheckListActivity extends BaseActivity implements NewCheckListCo
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NewCheckListActivity.super.onBackPressed();
+                onBackPressed();
             }
         });
 
