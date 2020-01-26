@@ -109,6 +109,24 @@ public class NewCheckListActivity extends BaseActivity implements NewCheckListCo
     }
 
     @Override
+    public void showNoCheckListNameErrorMessage() {
+        alertDialogManager.createDialog(getString(R.string.ok), null,  new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        }, null, getString(R.string.new_checklist_validation_fill_name)).show();
+    }
+
+    @Override
+    public void showNoItemsErrorMessage() {
+        alertDialogManager.createDialog(getString(R.string.ok), null,  new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        }, null, getString(R.string.new_checklist_validation_fill_items)).show();
+    }
+
+    @Override
     public void onClick(int id) {
         //todo edit item
     }

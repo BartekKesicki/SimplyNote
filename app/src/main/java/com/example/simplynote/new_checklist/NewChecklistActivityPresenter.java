@@ -1,5 +1,6 @@
 package com.example.simplynote.new_checklist;
 
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -26,7 +27,15 @@ public class NewChecklistActivityPresenter implements NewCheckListContract.NewCh
 
     public void submitChecklistForm(LinearLayout checkListContainer, String checkListName) {
         List<String> items = retrieveCheckListItems(checkListContainer);
-        //todo validate name, list and submit checklist row
+        if (TextUtils.isEmpty(checkListName)) {
+            view.showNoCheckListNameErrorMessage();
+            return;
+        }
+        if (items.isEmpty()) {
+            view.showNoCheckListNameErrorMessage();
+            return;
+        }
+        //todo insertion of checklist
     }
 
     private List<String> retrieveCheckListItems(LinearLayout checkListContainer) {

@@ -9,6 +9,8 @@ public class NewCheckListContract {
     public interface NewCheckListView extends BaseContract.BaseView {
         void addNewRow();
         void removeRow(int id);
+        void showNoCheckListNameErrorMessage();
+        void showNoItemsErrorMessage();
     }
 
     public static NewCheckListView NULL = new NewCheckListView() {
@@ -16,5 +18,9 @@ public class NewCheckListContract {
         public void addNewRow() { }
         @Override
         public void removeRow(int id) { }
+        @Override
+        public void showNoCheckListNameErrorMessage() { }
+        @Override
+        public void showNoItemsErrorMessage() { }
     };
 }
