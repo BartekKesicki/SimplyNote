@@ -5,16 +5,35 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import com.example.simplynote.new_note.NewNoteActivityPresenter;
+import com.example.simplynote.repository.ChecklistItemRepository;
+import com.example.simplynote.repository.ChecklistRepository;
+import com.example.simplynote.utils.BaseScheduler;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 public class NewChecklistActivityPresenter implements NewCheckListContract.NewCheckListPresenter<NewCheckListContract.NewCheckListView> {
 
     private static final int FIRST_INDEX = 0;
 
     private NewCheckListContract.NewCheckListView view;
+
+    private ChecklistRepository checklistRepository;
+
+    private ChecklistItemRepository checklistItemRepository;
+
+    private BaseScheduler baseScheduler;
+
+    @Inject
+    public NewChecklistActivityPresenter(ChecklistRepository checklistRepository, ChecklistItemRepository checklistItemRepository, BaseScheduler baseScheduler) {
+        this.checklistRepository = checklistRepository;
+        this.checklistItemRepository = checklistItemRepository;
+        this.baseScheduler = baseScheduler;
+    }
 
     @Override
     public void attach(NewCheckListContract.NewCheckListView view) {

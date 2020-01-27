@@ -6,12 +6,16 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.example.simplynote.room.dao.ChecklistDao;
+import com.example.simplynote.room.dao.ChecklistItemDao;
 import com.example.simplynote.room.dao.NoteDao;
 import com.example.simplynote.room.dao.UserDao;
+import com.example.simplynote.room.model.Checklist;
+import com.example.simplynote.room.model.ChecklistItem;
 import com.example.simplynote.room.model.Note;
 import com.example.simplynote.room.model.User;
 
-@Database(entities = {User.class, Note.class}, version = 1,  exportSchema = false)
+@Database(entities = {User.class, Note.class, Checklist.class, ChecklistItem.class}, version = 1,  exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static final String DB_NAME = "Invoice";
@@ -32,4 +36,8 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract UserDao userDao();
 
     public abstract NoteDao noteDao();
+
+    public abstract ChecklistDao checklistDao();
+
+    public abstract ChecklistItemDao checklistItemDao();
 }

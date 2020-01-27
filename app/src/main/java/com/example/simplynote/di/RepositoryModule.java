@@ -2,6 +2,12 @@ package com.example.simplynote.di;
 
 import android.content.Context;
 
+import com.example.simplynote.repository.ChecklistItemRepository;
+import com.example.simplynote.repository.ChecklistRepository;
+import com.example.simplynote.repository.impl.ChecklistItemRepositoryImpl;
+import com.example.simplynote.repository.impl.ChecklistRepositoryImpl;
+import com.example.simplynote.room.dao.ChecklistDao;
+import com.example.simplynote.room.dao.ChecklistItemDao;
 import com.example.simplynote.room.dao.NoteDao;
 import com.example.simplynote.room.dao.UserDao;
 import com.example.simplynote.room.db.AppDatabase;
@@ -41,5 +47,25 @@ public class RepositoryModule {
     @Provides
     public UserRepository provideUserRepository(UserDao userDao) {
         return new UserRepositoryImpl(userDao);
+    }
+
+    @Provides
+    public ChecklistDao provideChecklistDao(AppDatabase db) {
+        return db.checklistDao();
+    }
+
+    @Provides
+    public ChecklistItemDao provideChecklistItemDao(AppDatabase db) {
+        return db.checklistItemDao();
+    }
+
+    @Provides
+    public ChecklistItemRepository provideChecklistItemRepository(ChecklistItemDao checklistItemDao) {
+        return new ChecklistItemRepositoryImpl(checklistItemDao);
+    }
+
+    @Provides
+    public ChecklistRepository provideChecklistRepository(ChecklistDao checklistDao) {
+        return new ChecklistRepositoryImpl(checklistDao);
     }
 }
