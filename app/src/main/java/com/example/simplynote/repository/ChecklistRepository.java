@@ -9,7 +9,7 @@ import io.reactivex.Single;
 
 public interface ChecklistRepository {
 
-    Completable insert(Checklist checklist);
+    Single<Long> insert(Checklist checklist);
     Single<List<Checklist>> getAll();
     Completable update(Checklist checklist);
     Completable delete(Checklist checklist);

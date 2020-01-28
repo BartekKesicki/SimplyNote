@@ -25,11 +25,11 @@ public class ChecklistRepositoryImpl implements ChecklistRepository {
 
 
     @Override
-    public Completable insert(final Checklist checklist) {
-        return Completable.fromAction(new Action() {
+    public Single<Long> insert(final Checklist checklist) {
+        return Single.create(new SingleOnSubscribe<Long>() {
             @Override
-            public void run() throws Exception {
-                checklistDao.insert(checklist);
+            public void subscribe(SingleEmitter<Long> emitter) throws Exception {
+                emitter.onSuccess(checklistDao.insert(checklist));
             }
         });
     }

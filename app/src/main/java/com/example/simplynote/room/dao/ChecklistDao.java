@@ -14,7 +14,7 @@ import java.util.List;
 public interface ChecklistDao {
 
     @Insert
-    void insert(Checklist checklist);
+    Long insert(Checklist checklist);
 
     @Query("SELECT * FROM Checklists")
     List<Checklist> getAll();
