@@ -11,6 +11,8 @@ public class NewCheckListContract {
         void removeRow(int id);
         void showNoCheckListNameErrorMessage();
         void showNoItemsErrorMessage();
+        void showInsertionErrorMessage();
+        void redirectToMainPage();
     }
 
     public static NewCheckListView NULL = new NewCheckListView() {
@@ -22,5 +24,9 @@ public class NewCheckListContract {
         public void showNoCheckListNameErrorMessage() { }
         @Override
         public void showNoItemsErrorMessage() { }
+        @Override
+        public void showInsertionErrorMessage() { }
+        @Override
+        public void redirectToMainPage() { }
     };
 }

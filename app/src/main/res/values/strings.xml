@@ -34,6 +34,7 @@
     <string name="new_checklist_submit_prompt">Do you want accept this checklist?</string>
     <string name="new_checklist_validation_fill_name">Fill checklist name</string>
     <string name="new_checklist_validation_fill_items">Your checklist is empty</string>
+    <string name="new_checklist_insertion_failure_message">Checklist insertion failed</string>
     <string name="save">SAVE</string>
     <string name="cancel">CANCEL</string>
     <string name="yes">YES</string>

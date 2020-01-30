@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 
 import com.example.simplynote.R;
 import com.example.simplynote.base.BaseActivity;
+import com.example.simplynote.home.HomeActivity;
 import com.example.simplynote.utils.AlertDialogManager;
 import com.example.simplynote.utils.ChecklistItemManager;
 
@@ -124,6 +125,20 @@ public class NewCheckListActivity extends BaseActivity implements NewCheckListCo
                 dialog.dismiss();
             }
         }, null, getString(R.string.new_checklist_validation_fill_items)).show();
+    }
+
+    @Override
+    public void showInsertionErrorMessage() {
+        alertDialogManager.createDialog(getString(R.string.ok), null,  new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        }, null, getString(R.string.new_checklist_insertion_failure_message)).show();
+    }
+
+    @Override
+    public void redirectToMainPage() {
+        HomeActivity.start(this);
     }
 
     @Override

@@ -60,7 +60,7 @@ public class NewChecklistActivityPresenter implements NewCheckListContract.NewCh
             view.showNoCheckListNameErrorMessage();
             return;
         }
-        Checklist checklist = createChecklist(checkListName);
+        final Checklist checklist = createChecklist(checkListName);
         checklistRepository.insert(checklist)
                 .subscribeOn(baseScheduler.io())
                 .observeOn(baseScheduler.main())
@@ -71,17 +71,17 @@ public class NewChecklistActivityPresenter implements NewCheckListContract.NewCh
                     @Override
                     public void onSuccess(Long id) {
                         List<ChecklistItem> checklistItems = createChecklistItems(items, id);
-                        insertChecklistItems(checklistItems, id);
+                        insertChecklistItems(checklistItems, checklist);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        //todo error message
+                        view.showInsertionErrorMessage();
                     }
                 });
     }
 
-    private void insertChecklistItems(List<ChecklistItem> items, long id) {
+    private void insertChecklistItems(List<ChecklistItem> items, final Checklist checklist) {
         checklistItemRepository.insert(items)
                 .subscribeOn(baseScheduler.io())
                 .observeOn(baseScheduler.main())
@@ -91,13 +91,30 @@ public class NewChecklistActivityPresenter implements NewCheckListContract.NewCh
 
                     @Override
                     public void onComplete() {
-                        //todo redirect to main page
+                        view.redirectToMainPage();
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        //todo error message
+                        removeChecklist(checklist);
+                        view.showInsertionErrorMessage();
                     }
+                });
+    }
+
+    private void removeChecklist(Checklist checklist) {
+        checklistRepository.delete(checklist)
+                .subscribeOn(baseScheduler.io())
+                .observeOn(baseScheduler.main())
+                .subscribe(new CompletableObserver() {
+                    @Override
+                    public void onSubscribe(Disposable d) { }
+
+                    @Override
+                    public void onComplete() { }
+
+                    @Override
+                    public void onError(Throwable e) { }
                 });
     }
 
