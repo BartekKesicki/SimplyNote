@@ -9,6 +9,10 @@ public class NotesListPresenter implements NotesListFragmentContract.NotesListFr
         this.view = view;
     }
 
+    public void performToLoadNotesList() {
+        //todo load notes list
+    }
+
     @Override
     public void detach() {
         this.view = NotesListFragmentContract.NULL;

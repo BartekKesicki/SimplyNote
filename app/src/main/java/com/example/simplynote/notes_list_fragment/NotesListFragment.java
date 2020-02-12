@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.simplynote.R;
 import com.example.simplynote.base.BaseFragment;
@@ -16,6 +17,8 @@ import com.example.simplynote.new_note.NewNoteActivity;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import dagger.android.support.AndroidSupportInjection;
 
 public class NotesListFragment extends BaseFragment implements NotesListFragmentContract.NotesListView {
@@ -26,6 +29,8 @@ public class NotesListFragment extends BaseFragment implements NotesListFragment
 
     @Inject
     NotesListPresenter presenter;
+
+    private RecyclerView recyclerView;
 
     private Button addNewNoteButton;
 
@@ -47,6 +52,7 @@ public class NotesListFragment extends BaseFragment implements NotesListFragment
         super.onViewCreated(view, savedInstanceState);
         initializeUIControls(view);
         setButtonListeners();
+        presenter.performToLoadNotesList();
     }
 
     private void setButtonListeners() {
@@ -60,6 +66,7 @@ public class NotesListFragment extends BaseFragment implements NotesListFragment
 
     private void initializeUIControls(View view) {
         addNewNoteButton = view.findViewById(R.id.add_new_note_button);
+        recyclerView = view.findViewById(R.id.notes_recycler_view);
     }
 
     @Override
