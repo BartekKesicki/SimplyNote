@@ -32,6 +32,8 @@ public class NotesListFragment extends BaseFragment implements NotesListFragment
 
     private RecyclerView recyclerView;
 
+    private NotesAdapter notesAdapter;
+
     private Button addNewNoteButton;
 
     @Override

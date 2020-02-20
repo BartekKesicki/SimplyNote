@@ -49,8 +49,8 @@ public class PresentersModule {
 
     @Provides
     @Singleton
-    public NotesListPresenter provideNotesListPresenter() {
-        return new NotesListPresenter();
+    public NotesListPresenter provideNotesListPresenter(BaseScheduler baseScheduler, NoteRepository noteRepository) {
+        return new NotesListPresenter(baseScheduler, noteRepository);
     }
 
     @Provides

@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.simplynote.R;
+import com.example.simplynote.common.DateFormats;
 import com.example.simplynote.room.model.Note;
 import com.example.simplynote.utils.views.BaseHolderView;
 
@@ -34,8 +35,8 @@ public class NotesAdapter extends RecyclerView.Adapter<ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.noteName.setText(notes.get(position).getTitle());
-        //todo fix time format
-        holder.noteDescription.setText((int) notes.get(position).getCreationTime());
+        String descriptionPreffix = "Created at: ";
+        holder.noteDescription.setText(descriptionPreffix + DateFormats.listItemDateFormat.format(notes.get(position).getCreationTime()));
     }
 
     @Override
