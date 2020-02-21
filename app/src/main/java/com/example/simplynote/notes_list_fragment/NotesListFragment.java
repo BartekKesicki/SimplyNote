@@ -14,6 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.simplynote.R;
 import com.example.simplynote.base.BaseFragment;
 import com.example.simplynote.new_note.NewNoteActivity;
+import com.example.simplynote.room.model.Note;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -75,5 +78,15 @@ public class NotesListFragment extends BaseFragment implements NotesListFragment
     public void onDestroy() {
         presenter.detach();
         super.onDestroy();
+    }
+
+    @Override
+    public void showErrorMessage() {
+        //todo show Error message
+    }
+
+    @Override
+    public void createListView(List<Note> notes) {
+        //todo initialize notesadapter and fill list
     }
 }
