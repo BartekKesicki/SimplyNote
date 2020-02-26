@@ -1,6 +1,7 @@
 package com.example.simplynote.notes_list_fragment;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.example.simplynote.R;
 import com.example.simplynote.base.BaseFragment;
 import com.example.simplynote.new_note.NewNoteActivity;
 import com.example.simplynote.room.model.Note;
+import com.example.simplynote.utils.AlertDialogManager;
 
 import java.util.List;
 
@@ -32,6 +34,9 @@ public class NotesListFragment extends BaseFragment implements NotesListFragment
 
     @Inject
     NotesListPresenter presenter;
+
+    @Inject
+    AlertDialogManager alertDialogManager;
 
     private RecyclerView recyclerView;
 
@@ -82,7 +87,12 @@ public class NotesListFragment extends BaseFragment implements NotesListFragment
 
     @Override
     public void showErrorMessage() {
-        //todo show Error message
+        alertDialogManager.createDialog(getString(R.string.ok), null, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        }, null, getString(R.string.new_note_insertion_failure_message)).show();
     }
 
     @Override
