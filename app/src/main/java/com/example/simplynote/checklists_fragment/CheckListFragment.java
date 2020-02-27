@@ -1,6 +1,7 @@
 package com.example.simplynote.checklists_fragment;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.annotation.Nullable;
 import com.example.simplynote.R;
 import com.example.simplynote.base.BaseFragment;
 import com.example.simplynote.new_checklist.NewCheckListActivity;
+import com.example.simplynote.utils.AlertDialogManager;
 
 import javax.inject.Inject;
 
@@ -27,6 +29,9 @@ public class CheckListFragment extends BaseFragment implements CheckListFragment
 
     @Inject
     CheckListPresenter presenter;
+
+    @Inject
+    AlertDialogManager alertDialogManager;
 
     private Button addNewChecklistButton;
 
@@ -69,5 +74,15 @@ public class CheckListFragment extends BaseFragment implements CheckListFragment
     public void onDestroy() {
         presenter.detach();
         super.onDestroy();
+    }
+
+    @Override
+    public void showChecklistInsertionFailedMessage() {
+        alertDialogManager.createDialog(getString(R.string.ok), null, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        }, null, getString(R.string.new_checklist_insertion_failure_message)).show();
     }
 }
