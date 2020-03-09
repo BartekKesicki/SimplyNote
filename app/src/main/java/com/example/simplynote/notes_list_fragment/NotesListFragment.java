@@ -97,6 +97,7 @@ public class NotesListFragment extends BaseFragment implements NotesListFragment
 
     @Override
     public void createListView(List<Note> notes) {
-        //todo initialize notesadapter and fill list
+        notesAdapter = new NotesAdapter(notes);
+        recyclerView.setAdapter(notesAdapter);
     }
 }

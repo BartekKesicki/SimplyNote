@@ -47,14 +47,12 @@ public class NewNoteActivityPresenter implements NewNoteContract.NewNotePresente
                 .observeOn(baseScheduler.main())
                 .subscribe(new CompletableObserver() {
                     @Override
-                    public void onSubscribe(Disposable d) {
-                        view.displaySuccessNoteInsertionMessage();
-                        view.redirectToHomePage();
-                    }
+                    public void onSubscribe(Disposable d) { }
 
                     @Override
                     public void onComplete() {
-
+                        view.displaySuccessNoteInsertionMessage();
+                        view.redirectToHomePage();
                     }
 
                     @Override

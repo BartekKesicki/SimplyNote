@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "CheckListItems")
 public class ChecklistItem {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private long id;
 
     @ColumnInfo(name = "content")
