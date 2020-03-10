@@ -12,6 +12,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginLeft="16dp"
         android:textSize="20sp"
+        android:textStyle="bold"
         android:textColor="@color/colorBlack"
         android:id="@+id/note_name"
         android:text="@string/not_available" />
@@ -22,7 +23,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/note_name"
         app:layout_constraintBottom_toTopOf="@+id/divider"
-        android:textColor="@color/separatorColor"
+        android:textColor="@color/darkGrey"
         android:id="@+id/note_description"
         android:text="@string/not_available"
         android:layout_marginTop="8dp"
@@ -44,5 +45,5 @@
         android:id="@+id/divider"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:background="@color/separatorColor"/>
+        android:background="@color/colorBlack"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

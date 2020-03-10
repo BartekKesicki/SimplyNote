@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.simplynote.R;
@@ -77,6 +78,8 @@ public class NotesListFragment extends BaseFragment implements NotesListFragment
     private void initializeUIControls(View view) {
         addNewNoteButton = view.findViewById(R.id.add_new_note_button);
         recyclerView = view.findViewById(R.id.notes_recycler_view);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext());
+        recyclerView.setLayoutManager(layoutManager);
     }
 
     @Override

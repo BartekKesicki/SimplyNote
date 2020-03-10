@@ -6,4 +6,5 @@
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#ffffff</color>
     <color name="separatorColor">#C0C0C0</color>
+    <color name="darkGrey">#696969</color>
 </resources>
