@@ -10,6 +10,8 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.simplynote.R;
 import com.example.simplynote.base.BaseFragment;
@@ -35,7 +37,9 @@ public class CheckListFragment extends BaseFragment implements CheckListFragment
 
     private Button addNewChecklistButton;
 
-    //todo initialize checklist adapter
+    private ChecklistsAdapter checklistsAdapter;
+
+    private RecyclerView recyclerView;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -46,6 +50,9 @@ public class CheckListFragment extends BaseFragment implements CheckListFragment
 
     private void initializeUIControls(View view) {
         addNewChecklistButton = view.findViewById(R.id.add_new_checklist_button);
+        recyclerView = view.findViewById(R.id.checklists_recycler_view);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext());
+        recyclerView.setLayoutManager(layoutManager);
     }
 
     @Override
@@ -53,6 +60,7 @@ public class CheckListFragment extends BaseFragment implements CheckListFragment
         super.onViewCreated(view, savedInstanceState);
         initializeUIControls(view);
         setButtonListeners();
+        presenter.performToLoadCheckList();
     }
 
     private void setButtonListeners() {

@@ -13,4 +13,8 @@ public class CheckListPresenter implements CheckListFragmentContract.CheckListFr
     public void detach() {
         this.view = CheckListFragmentContract.NULL;
     }
+
+    public void performToLoadCheckList() {
+        //todo load checkslists
+    }
 }
