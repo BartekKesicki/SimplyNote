@@ -16,6 +16,7 @@
     <string name="home_error_fragment_text">ERROR</string>
     <string name="checklist_fragment_add_new_check_list_button_text">Add new Checklist</string>
     <string name="noteslist_fragment_add_new_note_button_text">Add new Note</string>
+    <string name="noteslists_fragment_fetch_data_failure_message">Notes load failed</string>
     <string name="new_note_top_label">New Note</string>
     <string name="new_note_title_label">Title</string>
     <string name="new_note_content_label">Content</string>
@@ -35,6 +36,7 @@
     <string name="new_checklist_validation_fill_name">Fill checklist name</string>
     <string name="new_checklist_validation_fill_items">Your checklist is empty</string>
     <string name="new_checklist_insertion_failure_message">Checklist insertion failed</string>
+    <string name="checklists_load_fail_message">Checklists load failed</string>
     <string name="save">SAVE</string>
     <string name="cancel">CANCEL</string>
     <string name="yes">YES</string>

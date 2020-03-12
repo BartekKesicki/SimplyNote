@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -35,9 +36,6 @@ public class NotesListFragment extends BaseFragment implements NotesListFragment
 
     @Inject
     NotesListPresenter presenter;
-
-    @Inject
-    AlertDialogManager alertDialogManager;
 
     private RecyclerView recyclerView;
 
@@ -90,12 +88,7 @@ public class NotesListFragment extends BaseFragment implements NotesListFragment
 
     @Override
     public void showErrorMessage() {
-        alertDialogManager.createDialog(getString(R.string.ok), null, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        }, null, getString(R.string.new_note_insertion_failure_message)).show();
+        Toast.makeText(requireContext(), getString(R.string.noteslists_fragment_fetch_data_failure_message), Toast.LENGTH_LONG).show();
     }
 
     @Override

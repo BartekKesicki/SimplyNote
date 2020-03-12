@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,7 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.simplynote.R;
 import com.example.simplynote.base.BaseFragment;
 import com.example.simplynote.new_checklist.NewCheckListActivity;
+import com.example.simplynote.room.model.Checklist;
 import com.example.simplynote.utils.AlertDialogManager;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -31,9 +35,6 @@ public class CheckListFragment extends BaseFragment implements CheckListFragment
 
     @Inject
     CheckListPresenter presenter;
-
-    @Inject
-    AlertDialogManager alertDialogManager;
 
     private Button addNewChecklistButton;
 
@@ -85,12 +86,13 @@ public class CheckListFragment extends BaseFragment implements CheckListFragment
     }
 
     @Override
-    public void showChecklistInsertionFailedMessage() {
-        alertDialogManager.createDialog(getString(R.string.ok), null, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        }, null, getString(R.string.new_checklist_insertion_failure_message)).show();
+    public void showChecklistLoadFailedMessage() {
+        Toast.makeText(requireContext(), getString(R.string.checklists_load_fail_message), Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showFetchedChecklists(List<Checklist> checklists) {
+        checklistsAdapter = new ChecklistsAdapter(checklists);
+        recyclerView.setAdapter(checklistsAdapter);
     }
 }

@@ -43,8 +43,8 @@ public class PresentersModule {
 
     @Provides
     @Singleton
-    public CheckListPresenter provideCheckListPresenter() {
-        return new CheckListPresenter();
+    public CheckListPresenter provideCheckListPresenter(BaseScheduler baseScheduler, ChecklistRepository checklistRepository) {
+        return new CheckListPresenter(baseScheduler, checklistRepository);
     }
 
     @Provides
