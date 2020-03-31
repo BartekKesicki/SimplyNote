@@ -2,6 +2,7 @@ package com.example.simplynote.checklists_fragment;
 
 import com.example.simplynote.repository.ChecklistRepository;
 import com.example.simplynote.room.model.Checklist;
+import com.example.simplynote.room.model.ChecklistWithItems;
 import com.example.simplynote.utils.BaseScheduler;
 
 import java.util.List;
@@ -39,12 +40,12 @@ public class CheckListPresenter implements CheckListFragmentContract.CheckListFr
         checklistRepository.getAll()
                 .subscribeOn(baseScheduler.io())
                 .observeOn(baseScheduler.main())
-                .subscribe(new SingleObserver<List<Checklist>>() {
+                .subscribe(new SingleObserver<List<ChecklistWithItems>>() {
                     @Override
                     public void onSubscribe(Disposable d) { }
 
                     @Override
-                    public void onSuccess(List<Checklist> checklists) {
+                    public void onSuccess(List<ChecklistWithItems> checklists) {
                         view.showFetchedChecklists(checklists);
                     }
 

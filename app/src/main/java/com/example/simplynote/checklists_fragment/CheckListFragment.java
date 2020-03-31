@@ -18,6 +18,7 @@ import com.example.simplynote.R;
 import com.example.simplynote.base.BaseFragment;
 import com.example.simplynote.new_checklist.NewCheckListActivity;
 import com.example.simplynote.room.model.Checklist;
+import com.example.simplynote.room.model.ChecklistWithItems;
 import com.example.simplynote.utils.AlertDialogManager;
 
 import java.util.List;
@@ -91,8 +92,8 @@ public class CheckListFragment extends BaseFragment implements CheckListFragment
     }
 
     @Override
-    public void showFetchedChecklists(List<Checklist> checklists) {
-        checklistsAdapter = new ChecklistsAdapter(checklists);
+    public void showFetchedChecklists(List<ChecklistWithItems> checklistsWithItems) {
+        checklistsAdapter = new ChecklistsAdapter(checklistsWithItems);
         recyclerView.setAdapter(checklistsAdapter);
     }
 }

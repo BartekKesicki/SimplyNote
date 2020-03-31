@@ -7,6 +7,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.simplynote.room.model.Checklist;
+import com.example.simplynote.room.model.ChecklistWithItems;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public interface ChecklistDao {
     Long insert(Checklist checklist);
 
     @Query("SELECT * FROM Checklists")
-    List<Checklist> getAll();
+    List<ChecklistWithItems> getAll();
 
     @Update
     void update(Checklist checklist);

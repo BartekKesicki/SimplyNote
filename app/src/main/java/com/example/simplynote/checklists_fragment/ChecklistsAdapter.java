@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.simplynote.R;
 import com.example.simplynote.room.model.Checklist;
+import com.example.simplynote.room.model.ChecklistWithItems;
 import com.example.simplynote.utils.views.BaseHolderView;
 
 import java.util.List;
@@ -19,10 +20,10 @@ import butterknife.ButterKnife;
 
 public class ChecklistsAdapter extends RecyclerView.Adapter<ViewHolder> {
 
-    private List<Checklist> checklists;
+    private List<ChecklistWithItems> checklistsWithItems;
 
-    public ChecklistsAdapter(List<Checklist> checklists) {
-        this.checklists = checklists;
+    public ChecklistsAdapter(List<ChecklistWithItems> checklistsWithItems) {
+        this.checklistsWithItems = checklistsWithItems;
     }
 
     @NonNull
@@ -33,14 +34,13 @@ public class ChecklistsAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.checklistName.setText(checklists.get(position).getName());
-        //todo fill quantity
-        holder.checklistItemsQuantity.setText("Quantity: " + "<quantity>");
+        holder.checklistName.setText(checklistsWithItems.get(position).getChecklist().getName());
+        holder.checklistItemsQuantity.setText("Positions: " + checklistsWithItems.get(position).getChecklistItems().size());
     }
 
     @Override
     public int getItemCount() {
-        return checklists.size();
+        return checklistsWithItems.size();
     }
 }
 

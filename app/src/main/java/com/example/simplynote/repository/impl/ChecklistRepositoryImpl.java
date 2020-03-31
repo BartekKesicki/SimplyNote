@@ -3,6 +3,7 @@ package com.example.simplynote.repository.impl;
 import com.example.simplynote.repository.ChecklistRepository;
 import com.example.simplynote.room.dao.ChecklistDao;
 import com.example.simplynote.room.model.Checklist;
+import com.example.simplynote.room.model.ChecklistWithItems;
 
 import java.util.List;
 
@@ -35,10 +36,10 @@ public class ChecklistRepositoryImpl implements ChecklistRepository {
     }
 
     @Override
-    public Single<List<Checklist>> getAll() {
-        return Single.create(new SingleOnSubscribe<List<Checklist>>() {
+    public Single<List<ChecklistWithItems>> getAll() {
+        return Single.create(new SingleOnSubscribe<List<ChecklistWithItems>>() {
             @Override
-            public void subscribe(SingleEmitter<List<Checklist>> emitter) throws Exception {
+            public void subscribe(SingleEmitter<List<ChecklistWithItems>> emitter) throws Exception {
                 emitter.onSuccess(checklistDao.getAll());
             }
         });
