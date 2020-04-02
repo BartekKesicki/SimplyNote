@@ -65,12 +65,7 @@ public class NotesListFragment extends BaseFragment implements NotesListFragment
     }
 
     private void setButtonListeners() {
-        addNewNoteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NewNoteActivity.start(requireContext());
-            }
-        });
+        addNewNoteButton.setOnClickListener(view -> NewNoteActivity.start(requireContext()));
     }
 
     private void initializeUIControls(View view) {

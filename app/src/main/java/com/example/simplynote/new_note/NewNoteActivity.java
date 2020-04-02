@@ -46,13 +46,10 @@ public class NewNoteActivity extends BaseActivity implements NewNoteContract.New
     }
 
     private void setButtonListeners() {
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String title = titleEditText.getText().toString();
-                String noteContent = noteEditText.getText().toString();
-                presenter.addNewNote(title, noteContent);
-            }
+        submitButton.setOnClickListener(view -> {
+            String title = titleEditText.getText().toString();
+            String noteContent = noteEditText.getText().toString();
+            presenter.addNewNote(title, noteContent);
         });
     }
 

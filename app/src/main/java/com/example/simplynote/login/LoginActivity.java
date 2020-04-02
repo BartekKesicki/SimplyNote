@@ -50,26 +50,18 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
     }
 
     private void setButtonListeners() {
-        registerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                presenter.performToRedirectToRegisterPage();
-            }
-        });
+        registerButton.setOnClickListener(view -> presenter.performToRedirectToRegisterPage());
 
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                clearErrors();
-                try {
-                    String login = loginEdittext.getText().toString();
-                    String password = passwordEdittext.getText().toString();
-                    presenter.performToLogin(login, password);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                    String errorMessage = getString(R.string.login_incorrect_inputs_message);
-                    setLoginErrorMessage(errorMessage);
-                }
+        submitButton.setOnClickListener(view -> {
+            clearErrors();
+            try {
+                String login = loginEdittext.getText().toString();
+                String password = passwordEdittext.getText().toString();
+                presenter.performToLogin(login, password);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                String errorMessage = getString(R.string.login_incorrect_inputs_message);
+                setLoginErrorMessage(errorMessage);
             }
         });
     }

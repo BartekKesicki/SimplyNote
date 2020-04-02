@@ -27,41 +27,21 @@ public class ChecklistRepositoryImpl implements ChecklistRepository {
 
     @Override
     public Single<Long> insert(final Checklist checklist) {
-        return Single.create(new SingleOnSubscribe<Long>() {
-            @Override
-            public void subscribe(SingleEmitter<Long> emitter) throws Exception {
-                emitter.onSuccess(checklistDao.insert(checklist));
-            }
-        });
+        return Single.create(emitter -> emitter.onSuccess(checklistDao.insert(checklist)));
     }
 
     @Override
     public Single<List<ChecklistWithItems>> getAll() {
-        return Single.create(new SingleOnSubscribe<List<ChecklistWithItems>>() {
-            @Override
-            public void subscribe(SingleEmitter<List<ChecklistWithItems>> emitter) throws Exception {
-                emitter.onSuccess(checklistDao.getAll());
-            }
-        });
+        return Single.create(emitter -> emitter.onSuccess(checklistDao.getAll()));
     }
 
     @Override
     public Completable update(final Checklist checklist) {
-        return Completable.fromAction(new Action() {
-            @Override
-            public void run() throws Exception {
-                checklistDao.update(checklist);
-            }
-        });
+        return Completable.fromAction(() -> checklistDao.update(checklist));
     }
 
     @Override
     public Completable delete(final Checklist checklist) {
-        return Completable.fromAction(new Action() {
-            @Override
-            public void run() throws Exception {
-                checklistDao.delete(checklist);
-            }
-        });
+        return Completable.fromAction(() -> checklistDao.delete(checklist));
     }
 }

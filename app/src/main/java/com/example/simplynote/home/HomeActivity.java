@@ -3,7 +3,9 @@ package com.example.simplynote.home;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toolbar;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.simplynote.R;
@@ -25,8 +27,6 @@ public class HomeActivity extends BaseActivity implements HomeContract.HomeView 
         context.startActivity(intent);
     }
 
-    private static final int TABS_COUNT = 2;
-
     @Inject
     HomeActivityPresenter presenter;
 
@@ -38,11 +38,18 @@ public class HomeActivity extends BaseActivity implements HomeContract.HomeView 
     protected void onCreate(Bundle savedInstanceState) {
         AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
+        hideActionBar();
         setContentView(R.layout.activity_home);
         super.bind();
         presenter.attach(this);
         initializeTabLayout();
+    }
+
+    private void hideActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
     }
 
     private void initializeTabLayout() {

@@ -62,34 +62,14 @@ public class NewCheckListActivity extends BaseActivity implements NewCheckListCo
     }
 
     private void setListeners() {
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                alertDialogManager.createDialog(getString(R.string.yes), getString(R.string.no), new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        presenter.submitChecklistForm(checkListContainer, checklistName.getText().toString());
-                    }
-                }, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                }, getString(R.string.new_checklist_submit_prompt)).show();
-            }
-        });
+        submitButton.setOnClickListener(view ->
+                alertDialogManager.createDialog(getString(R.string.yes), getString(R.string.no),
+                        (dialog, which) -> presenter.submitChecklistForm(checkListContainer, checklistName.getText().toString()),
+                        (dialog, which) -> dialog.dismiss(), getString(R.string.new_checklist_submit_prompt)).show());
 
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+        cancelButton.setOnClickListener(view -> onBackPressed());
 
-        newItemButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                presenter.performAddNewChecklistRow();
-            }
-        });
+        newItemButton.setOnClickListener(view -> presenter.performAddNewChecklistRow());
     }
 
     @Override
@@ -111,29 +91,17 @@ public class NewCheckListActivity extends BaseActivity implements NewCheckListCo
 
     @Override
     public void showNoCheckListNameErrorMessage() {
-        alertDialogManager.createDialog(getString(R.string.ok), null,  new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        }, null, getString(R.string.new_checklist_validation_fill_name)).show();
+        alertDialogManager.createDialog(getString(R.string.ok), null, (dialog, which) -> dialog.dismiss(), null, getString(R.string.new_checklist_validation_fill_name)).show();
     }
 
     @Override
     public void showNoItemsErrorMessage() {
-        alertDialogManager.createDialog(getString(R.string.ok), null,  new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        }, null, getString(R.string.new_checklist_validation_fill_items)).show();
+        alertDialogManager.createDialog(getString(R.string.ok), null, (dialog, which) -> dialog.dismiss(), null, getString(R.string.new_checklist_validation_fill_items)).show();
     }
 
     @Override
     public void showInsertionErrorMessage() {
-        alertDialogManager.createDialog(getString(R.string.ok), null,  new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        }, null, getString(R.string.new_checklist_insertion_failure_message)).show();
+        alertDialogManager.createDialog(getString(R.string.ok), null, (dialog, which) -> dialog.dismiss(), null, getString(R.string.new_checklist_insertion_failure_message)).show();
     }
 
     @Override
@@ -148,14 +116,8 @@ public class NewCheckListActivity extends BaseActivity implements NewCheckListCo
 
     @Override
     public void onPerformRemove(final int id) {
-        alertDialogManager.createDialog(getString(R.string.yes), getString(R.string.no), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                removeRow(id);
-            }
-        }, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        }, getString(R.string.new_checklist_remove_row_prompt)).show();
+        alertDialogManager.createDialog(getString(R.string.yes), getString(R.string.no),
+                (dialog, which) -> removeRow(id),
+                (dialog, which) -> dialog.dismiss(), getString(R.string.new_checklist_remove_row_prompt)).show();
     }
 }

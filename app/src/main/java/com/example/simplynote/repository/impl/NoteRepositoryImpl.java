@@ -25,41 +25,21 @@ public class NoteRepositoryImpl implements NoteRepository {
 
     @Override
     public Completable insert(final Note note) {
-        return Completable.fromAction(new Action() {
-            @Override
-            public void run() throws Exception {
-                noteDao.insert(note);
-            }
-        });
+        return Completable.fromAction(() -> noteDao.insert(note));
     }
 
     @Override
     public Single<List<Note>> getAll() {
-        return Single.create(new SingleOnSubscribe<List<Note>>() {
-            @Override
-            public void subscribe(SingleEmitter<List<Note>> emitter) throws Exception {
-                emitter.onSuccess(noteDao.getAll());
-            }
-        });
+        return Single.create(emitter -> emitter.onSuccess(noteDao.getAll()));
     }
 
     @Override
     public Completable update(final Note note) {
-        return Completable.fromAction(new Action() {
-            @Override
-            public void run() throws Exception {
-                noteDao.update(note);
-            }
-        });
+        return Completable.fromAction(() -> noteDao.update(note));
     }
 
     @Override
     public Completable delete(final Note note) {
-        return Completable.fromAction(new Action() {
-            @Override
-            public void run() throws Exception {
-                noteDao.delete(note);
-            }
-        });
+        return Completable.fromAction(() -> noteDao.delete(note));
     }
 }

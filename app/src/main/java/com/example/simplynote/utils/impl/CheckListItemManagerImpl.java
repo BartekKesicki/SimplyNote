@@ -19,7 +19,6 @@ import javax.inject.Inject;
 
 public class CheckListItemManagerImpl implements ChecklistItemManager {
 
-    private static final int DEFAULT_CHECKLIST_ITEM_WIDTH = 100;
     private Context mContext;
     private StringProvider stringProvider;
 
@@ -49,12 +48,7 @@ public class CheckListItemManagerImpl implements ChecklistItemManager {
         button.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
         button.setBackgroundColor(mContext.getColor(R.color.colorBlack));
         button.setImageResource(android.R.drawable.ic_delete);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onChecklistItemClickListener.onPerformRemove(id);
-            }
-        });
+        button.setOnClickListener(view -> onChecklistItemClickListener.onPerformRemove(id));
         return button;
     }
 

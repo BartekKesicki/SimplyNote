@@ -66,12 +66,7 @@ public class CheckListFragment extends BaseFragment implements CheckListFragment
     }
 
     private void setButtonListeners() {
-        addNewChecklistButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NewCheckListActivity.start(requireContext());
-            }
-        });
+        addNewChecklistButton.setOnClickListener(view -> NewCheckListActivity.start(requireContext()));
     }
 
     @Nullable

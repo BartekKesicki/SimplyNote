@@ -7,7 +7,5 @@ public class ErrorFragmentContract {
 
     public interface ErrorFragmentPresenter<V> extends BaseContract.BasePresenter<V> {}
 
-    public static ErrorFragmentView NULL = new ErrorFragmentView() {
-
-    };
+    public static ErrorFragmentView NULL = new ErrorFragmentView() { };
 }

@@ -25,41 +25,21 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public Completable insert(final User user) {
-        return Completable.fromAction(new Action() {
-            @Override
-            public void run() throws Exception {
-                userDao.insert(user);
-            }
-        });
+        return Completable.fromAction(() -> userDao.insert(user));
     }
 
     @Override
     public Single<List<User>> getAll() {
-        return Single.create(new SingleOnSubscribe<List<User>>() {
-            @Override
-            public void subscribe(SingleEmitter<List<User>> emitter) throws Exception {
-                emitter.onSuccess(userDao.getAll());
-            }
-        });
+        return Single.create(emitter -> emitter.onSuccess(userDao.getAll()));
     }
 
     @Override
     public Completable update(final User user) {
-        return Completable.fromAction(new Action() {
-            @Override
-            public void run() throws Exception {
-                userDao.update(user);
-            }
-        });
+        return Completable.fromAction(() -> userDao.update(user));
     }
 
     @Override
     public Completable delete(final User user) {
-        return Completable.fromAction(new Action() {
-            @Override
-            public void run() throws Exception {
-                userDao.delete(user);
-            }
-        });
+        return Completable.fromAction(() -> userDao.delete(user));
     }
 }

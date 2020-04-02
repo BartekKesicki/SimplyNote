@@ -47,12 +47,9 @@ public class RegisterActivity extends BaseActivity implements RegisterContract.R
     }
 
     private void setButtonListeners() {
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                clearAllErrors();
-                presenter.performToRegister(loginEditText.getText().toString(), passwordEditText.getText().toString(), confirmPasswordEditText.getText().toString());
-            }
+        submitButton.setOnClickListener(view -> {
+            clearAllErrors();
+            presenter.performToRegister(loginEditText.getText().toString(), passwordEditText.getText().toString(), confirmPasswordEditText.getText().toString());
         });
     }
 

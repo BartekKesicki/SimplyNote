@@ -19,7 +19,11 @@ public class AlertDialogManagerImpl implements AlertDialogManager {
     }
 
     @Override
-    public AlertDialog createDialog(String positiveButtonText, String negativeButtonText, DialogInterface.OnClickListener positiveListener, DialogInterface.OnClickListener negativeListener, String message) {
+    public AlertDialog createDialog(String positiveButtonText,
+                                    String negativeButtonText,
+                                    DialogInterface.OnClickListener positiveListener,
+                                    DialogInterface.OnClickListener negativeListener,
+                                    String message) {
         AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
         alertDialog.setMessage(message);
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, positiveButtonText, positiveListener);
