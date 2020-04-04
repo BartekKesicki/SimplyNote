@@ -30,13 +30,23 @@
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="16dp" />
 
-    <Button
+    <ImageButton
+        android:id="@+id/note_edit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/note_delete_button"
+        android:src="@drawable/ic_edit"/>
+
+    <ImageButton
+        android:id="@+id/note_delete_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="@string/list_item_remove_button_text"/>
+        android:src="@drawable/ic_delete"/>
 
     <View
         android:layout_width="match_parent"
