@@ -20,6 +20,7 @@ import com.example.simplynote.new_checklist.NewCheckListActivity;
 import com.example.simplynote.room.model.Checklist;
 import com.example.simplynote.room.model.ChecklistWithItems;
 import com.example.simplynote.utils.AlertDialogManager;
+import com.example.simplynote.utils.StringProvider;
 
 import java.util.List;
 
@@ -28,7 +29,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import dagger.android.support.AndroidSupportInjection;
 
-public class CheckListFragment extends BaseFragment implements CheckListFragmentContract.CheckListView {
+public class CheckListFragment extends BaseFragment implements CheckListFragmentContract.CheckListView, OnCheckListFragmentRowAction {
 
     public static CheckListFragment newInstance() {
         return new CheckListFragment();
@@ -36,6 +37,12 @@ public class CheckListFragment extends BaseFragment implements CheckListFragment
 
     @Inject
     CheckListPresenter presenter;
+
+    @Inject
+    AlertDialogManager alertDialogManager;
+
+    @Inject
+    StringProvider stringProvider;
 
     private Button addNewChecklistButton;
 
@@ -62,6 +69,7 @@ public class CheckListFragment extends BaseFragment implements CheckListFragment
         super.onViewCreated(view, savedInstanceState);
         initializeUIControls(view);
         setButtonListeners();
+        alertDialogManager.setMContext(requireContext());
         presenter.performToLoadCheckList();
     }
 
@@ -88,7 +96,17 @@ public class CheckListFragment extends BaseFragment implements CheckListFragment
 
     @Override
     public void showFetchedChecklists(List<ChecklistWithItems> checklistsWithItems) {
-        checklistsAdapter = new ChecklistsAdapter(checklistsWithItems);
+        checklistsAdapter = new ChecklistsAdapter(checklistsWithItems, this);
         recyclerView.setAdapter(checklistsAdapter);
+    }
+
+    @Override
+    public void onPerformRemoveChecklistItem(long id) {
+        alertDialogManager.createDialog(stringProvider.getString(R.string.checklist_remove_ask_message), stringProvider.getString(R.string.no), (dialog, which) -> {
+            //todo remove checklist
+            dialog.dismiss();
+        }, (dialog, which) -> {
+            dialog.dismiss();
+        }, stringProvider.getString(R.string.checklist_remove_ask_message));
     }
 }

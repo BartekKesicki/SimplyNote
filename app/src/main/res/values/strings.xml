@@ -44,4 +44,5 @@
     <string name="ok">OK</string>
     <string name="list_item_date_created_preffix">Created at </string>
     <string name="not_available">N/A</string>
+    <string name="checklist_remove_ask_message">Do you want remove this checklist?</string>
 </resources>

@@ -3,6 +3,7 @@ package com.example.simplynote.checklists_fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,9 +22,11 @@ import butterknife.ButterKnife;
 public class ChecklistsAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private List<ChecklistWithItems> checklistsWithItems;
+    private OnCheckListFragmentRowAction onCheckListFragmentRowAction;
 
-    public ChecklistsAdapter(List<ChecklistWithItems> checklistsWithItems) {
+    public ChecklistsAdapter(List<ChecklistWithItems> checklistsWithItems, OnCheckListFragmentRowAction onCheckListFragmentRowAction) {
         this.checklistsWithItems = checklistsWithItems;
+        this.onCheckListFragmentRowAction = onCheckListFragmentRowAction;
     }
 
     @NonNull
@@ -36,6 +39,9 @@ public class ChecklistsAdapter extends RecyclerView.Adapter<ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.checklistName.setText(checklistsWithItems.get(position).getChecklist().getName());
         holder.checklistItemsQuantity.setText("Positions: " + checklistsWithItems.get(position).getChecklistItems().size());
+        holder.deleteButton.setOnClickListener(v -> {
+            onCheckListFragmentRowAction.onPerformRemoveChecklistItem(checklistsWithItems.get(position).getChecklist().getId());
+        });
     }
 
     @Override
@@ -46,11 +52,14 @@ public class ChecklistsAdapter extends RecyclerView.Adapter<ViewHolder> {
 
 class ViewHolder extends BaseHolderView {
 
-    @BindView(R.id.note_name)
+    @BindView(R.id.checklist_name)
     TextView checklistName;
 
-    @BindView(R.id.note_description)
+    @BindView(R.id.checklist_items_quantity)
     TextView checklistItemsQuantity;
+
+    @BindView(R.id.delete_row_button)
+    ImageButton deleteButton;
 
     public ViewHolder(View itemView) {
         super(itemView);
