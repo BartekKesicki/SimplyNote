@@ -19,6 +19,7 @@ import com.example.simplynote.base.BaseFragment;
 import com.example.simplynote.new_note.NewNoteActivity;
 import com.example.simplynote.room.model.Note;
 import com.example.simplynote.utils.AlertDialogManager;
+import com.example.simplynote.utils.StringProvider;
 
 import java.util.List;
 
@@ -28,7 +29,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import dagger.android.support.AndroidSupportInjection;
 
-public class NotesListFragment extends BaseFragment implements NotesListFragmentContract.NotesListView {
+public class NotesListFragment extends BaseFragment implements NotesListFragmentContract.NotesListView, OnNotesListFragmentAction {
 
     public static NotesListFragment newInstance() {
         return new NotesListFragment();
@@ -36,6 +37,12 @@ public class NotesListFragment extends BaseFragment implements NotesListFragment
 
     @Inject
     NotesListPresenter presenter;
+
+    @Inject
+    AlertDialogManager alertDialogManager;
+
+    @Inject
+    StringProvider stringProvider;
 
     private RecyclerView recyclerView;
 
@@ -88,7 +95,17 @@ public class NotesListFragment extends BaseFragment implements NotesListFragment
 
     @Override
     public void createListView(List<Note> notes) {
-        notesAdapter = new NotesAdapter(notes);
+        notesAdapter = new NotesAdapter(notes, this);
         recyclerView.setAdapter(notesAdapter);
+    }
+
+    @Override
+    public void performRemoveNote(long id) {
+        alertDialogManager.createDialog(stringProvider.getString(R.string.yes), stringProvider.getString(R.string.no), (dialog, which) -> {
+            //todo remove note
+            dialog.dismiss();
+        }, (dialog, which) -> {
+            dialog.dismiss();
+        }, stringProvider.getString(R.string.note_remove_ask_message));
     }
 }

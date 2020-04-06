@@ -3,6 +3,7 @@ package com.example.simplynote.notes_list_fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,8 +23,11 @@ public class NotesAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private List<Note> notes;
 
-    public NotesAdapter(List<Note> notes) {
+    private OnNotesListFragmentAction onNotesListFragmentAction;
+
+    public NotesAdapter(List<Note> notes, OnNotesListFragmentAction onNotesListFragmentAction) {
         this.notes = notes;
+        this.onNotesListFragmentAction = onNotesListFragmentAction;
     }
 
     @NonNull
@@ -37,6 +41,9 @@ public class NotesAdapter extends RecyclerView.Adapter<ViewHolder> {
         holder.noteName.setText(notes.get(position).getTitle());
         String descriptionPreffix = "Created at: ";
         holder.noteDescription.setText(descriptionPreffix + DateFormats.listItemDateFormat.format(notes.get(position).getCreationTime()));
+        holder.imageButton.setOnClickListener(v -> {
+            onNotesListFragmentAction.performRemoveNote(notes.get(position).getId());
+        });
     }
 
     @Override
@@ -52,6 +59,9 @@ class ViewHolder extends BaseHolderView {
 
     @BindView(R.id.note_description)
     TextView noteDescription;
+
+    @BindView(R.id.note_delete_button)
+    ImageButton imageButton;
 
     public ViewHolder(View itemView) {
         super(itemView);

@@ -102,11 +102,11 @@ public class CheckListFragment extends BaseFragment implements CheckListFragment
 
     @Override
     public void onPerformRemoveChecklistItem(long id) {
-        alertDialogManager.createDialog(stringProvider.getString(R.string.checklist_remove_ask_message), stringProvider.getString(R.string.no), (dialog, which) -> {
+        alertDialogManager.createDialog(stringProvider.getString(R.string.yes), stringProvider.getString(R.string.no), (dialog, which) -> {
             //todo remove checklist
             dialog.dismiss();
         }, (dialog, which) -> {
             dialog.dismiss();
-        }, stringProvider.getString(R.string.checklist_remove_ask_message));
+        }, stringProvider.getString(R.string.checklist_remove_ask_message)).show();
     }
 }
