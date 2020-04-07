@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import io.reactivex.CompletableObserver;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 
@@ -52,6 +53,26 @@ public class CheckListPresenter implements CheckListFragmentContract.CheckListFr
                     @Override
                     public void onError(Throwable e) {
                         view.showChecklistLoadFailedMessage();
+                    }
+                });
+    }
+
+    public void performToRemoveChecklist(Checklist checklist) {
+        checklistRepository.delete(checklist)
+                .subscribeOn(baseScheduler.io())
+                .observeOn(baseScheduler.main())
+                .subscribe(new CompletableObserver() {
+                    @Override
+                    public void onSubscribe(Disposable d) { }
+
+                    @Override
+                    public void onComplete() {
+                        view.showRemoveChecklistSuccess();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        view.showRemoveChecklistSuccess();
                     }
                 });
     }
