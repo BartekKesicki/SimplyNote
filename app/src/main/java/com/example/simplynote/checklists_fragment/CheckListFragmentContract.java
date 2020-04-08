@@ -11,7 +11,7 @@ public class CheckListFragmentContract {
     public interface CheckListView extends BaseContract.BaseView {
         void showChecklistLoadFailedMessage();
         void showFetchedChecklists(List<ChecklistWithItems> checklistsWithItems);
-        void showRemoveChecklistSuccess();
+        void showRemoveChecklistSuccess(int position);
         void showRemoveChecklistFailure();
     }
 
@@ -25,7 +25,7 @@ public class CheckListFragmentContract {
         public void showFetchedChecklists(List<ChecklistWithItems> checklistsWithItems) { }
 
         @Override
-        public void showRemoveChecklistSuccess() { }
+        public void showRemoveChecklistSuccess(int position) { }
 
         @Override
         public void showRemoveChecklistFailure() { }

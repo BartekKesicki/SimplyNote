@@ -57,7 +57,7 @@ public class CheckListPresenter implements CheckListFragmentContract.CheckListFr
                 });
     }
 
-    public void performToRemoveChecklist(Checklist checklist) {
+    public void performToRemoveChecklist(Checklist checklist, int position) {
         checklistRepository.delete(checklist)
                 .subscribeOn(baseScheduler.io())
                 .observeOn(baseScheduler.main())
@@ -67,12 +67,12 @@ public class CheckListPresenter implements CheckListFragmentContract.CheckListFr
 
                     @Override
                     public void onComplete() {
-                        view.showRemoveChecklistSuccess();
+                        view.showRemoveChecklistSuccess(position);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        view.showRemoveChecklistSuccess();
+                        view.showRemoveChecklistFailure();
                     }
                 });
     }

@@ -41,9 +41,7 @@ public class NotesAdapter extends RecyclerView.Adapter<ViewHolder> {
         holder.noteName.setText(notes.get(position).getTitle());
         String descriptionPreffix = "Created at: ";
         holder.noteDescription.setText(descriptionPreffix + DateFormats.listItemDateFormat.format(notes.get(position).getCreationTime()));
-        holder.imageButton.setOnClickListener(v -> {
-            onNotesListFragmentAction.performRemoveNote(notes.get(position).getId());
-        });
+        holder.imageButton.setOnClickListener(v -> onNotesListFragmentAction.performRemoveNote(notes.get(position), position));
     }
 
     @Override

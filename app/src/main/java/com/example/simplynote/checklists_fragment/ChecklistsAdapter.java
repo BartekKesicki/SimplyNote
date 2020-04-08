@@ -39,7 +39,7 @@ public class ChecklistsAdapter extends RecyclerView.Adapter<ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.checklistName.setText(checklistsWithItems.get(position).getChecklist().getName());
         holder.checklistItemsQuantity.setText("Positions: " + checklistsWithItems.get(position).getChecklistItems().size());
-        holder.deleteButton.setOnClickListener(v -> onCheckListFragmentRowAction.onPerformRemoveChecklistItem(checklistsWithItems.get(position).getChecklist()));
+        holder.deleteButton.setOnClickListener(v -> onCheckListFragmentRowAction.onPerformRemoveChecklistItem(checklistsWithItems.get(position).getChecklist(), position));
     }
 
     @Override

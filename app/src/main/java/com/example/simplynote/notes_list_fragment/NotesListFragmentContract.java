@@ -10,6 +10,8 @@ public class NotesListFragmentContract {
     public interface NotesListView extends BaseContract.BaseView {
         void showErrorMessage();
         void createListView(List<Note> notes);
+        void showRemoveNoteSuccess(int position);
+        void showRemoveNoteFailure();
     }
 
     public interface NotesListFragmentPresenter<V> extends BaseContract.BasePresenter<V> { }
@@ -20,5 +22,11 @@ public class NotesListFragmentContract {
 
         @Override
         public void createListView(List<Note> notes) { }
+
+        @Override
+        public void showRemoveNoteSuccess(int position) { }
+
+        @Override
+        public void showRemoveNoteFailure() { }
     };
 }

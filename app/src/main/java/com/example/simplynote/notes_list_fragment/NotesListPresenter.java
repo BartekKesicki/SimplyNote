@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import io.reactivex.CompletableObserver;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 
@@ -46,6 +47,26 @@ public class NotesListPresenter implements NotesListFragmentContract.NotesListFr
                     @Override
                     public void onError(Throwable e) {
                         view.showErrorMessage();
+                    }
+                });
+    }
+
+    public void performToRemoveNote(Note note, int position) {
+        noteRepository.delete(note)
+                .subscribeOn(baseScheduler.io())
+                .observeOn(baseScheduler.main())
+                .subscribe(new CompletableObserver() {
+                    @Override
+                    public void onSubscribe(Disposable d) { }
+
+                    @Override
+                    public void onComplete() {
+                        view.showRemoveNoteSuccess(position);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        view.showRemoveNoteFailure();
                     }
                 });
     }

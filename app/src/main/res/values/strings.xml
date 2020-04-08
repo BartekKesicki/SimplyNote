@@ -45,7 +45,9 @@
     <string name="list_item_date_created_preffix">Created at </string>
     <string name="not_available">N/A</string>
     <string name="checklist_remove_ask_message">Do you want remove this checklist?</string>
-    <string name="checklist_removed_properly_message">Checklist removed properly</string>
+    <string name="checklist_removed_properly_message">Checklist removed</string>
     <string name="checklist_removed_failure_message">Cannot remove this checklist. Try again later</string>
     <string name="note_remove_ask_message">Do you want to remove this note?</string>
+    <string name="note_removed_properly_message">Note removed</string>
+    <string name="note_removed_failure_message">Cannot remove this note. Try again later</string>
 </resources>

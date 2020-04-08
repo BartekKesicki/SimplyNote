@@ -100,9 +100,20 @@ public class NotesListFragment extends BaseFragment implements NotesListFragment
     }
 
     @Override
-    public void performRemoveNote(long id) {
+    public void showRemoveNoteSuccess(int position) {
+        Toast.makeText(requireContext(), stringProvider.getString(R.string.note_removed_properly_message), Toast.LENGTH_LONG).show();
+        notesAdapter.notifyItemRemoved(position);
+    }
+
+    @Override
+    public void showRemoveNoteFailure() {
+        Toast.makeText(requireContext(), stringProvider.getString(R.string.note_removed_failure_message), Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void performRemoveNote(Note note, int position) {
         alertDialogManager.createDialog(stringProvider.getString(R.string.yes), stringProvider.getString(R.string.no), (dialog, which) -> {
-            //todo remove note
+            presenter.performToRemoveNote(note, position);
             dialog.dismiss();
         }, (dialog, which) -> {
             dialog.dismiss();
