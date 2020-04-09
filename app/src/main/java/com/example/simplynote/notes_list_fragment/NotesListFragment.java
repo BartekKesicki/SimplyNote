@@ -68,6 +68,7 @@ public class NotesListFragment extends BaseFragment implements NotesListFragment
         super.onViewCreated(view, savedInstanceState);
         initializeUIControls(view);
         setButtonListeners();
+        alertDialogManager.setMContext(requireContext());
         presenter.performToLoadNotesList();
     }
 

@@ -72,7 +72,7 @@ public class RegisterActivityPresenter implements RegisterContract.RegisterPrese
 
                     @Override
                     public void onError(Throwable e) {
-                        //todo check error
+                        view.showToast(mStringProvider.getString(R.string.registry_verication_failed_message));
                     }
                 });
     }

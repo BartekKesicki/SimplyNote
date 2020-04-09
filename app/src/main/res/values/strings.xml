@@ -10,6 +10,7 @@
     <string name="registration_this_field_cant_be_empty">This field can not be empty</string>
     <string name="registration_user_already_exists">User already exists</string>
     <string name="registration_user_insertion_failed">User can not be added</string>
+    <string name="registry_verication_failed_message">User verification failed try again later</string>
     <string name="registration_user_added_message">User added</string>
     <string name="home_checklists_tab_item">Checklists</string>
     <string name="home_notes_tab_item">Notes</string>

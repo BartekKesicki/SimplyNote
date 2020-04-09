@@ -110,11 +110,6 @@ public class NewCheckListActivity extends BaseActivity implements NewCheckListCo
     }
 
     @Override
-    public void onClick(int id) {
-        //todo edit item
-    }
-
-    @Override
     public void onPerformRemove(final int id) {
         alertDialogManager.createDialog(getString(R.string.yes), getString(R.string.no),
                 (dialog, which) -> removeRow(id),
